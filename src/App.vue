@@ -19,10 +19,6 @@ export default {
 }
 </script>
 
-
-
-
-
 <!--CSS Style, Using SCSS -->
 <style lang="scss">
 body{
@@ -51,7 +47,7 @@ html {
   box-sizing: inherit;
 }
 .wrapper{
-  width:90%;
+  width:98%;
   margin:0 auto;
 }
 </style>

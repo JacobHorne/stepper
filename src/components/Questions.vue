@@ -1,18 +1,30 @@
 <template>
   <div>
-      <div>
+    
+      <div class="questions_wrapper">
         <transition-group name="fade">
           <!--Step 1-->
           <div class="question" key="1" v-show="step === 'step1'">
             <h4>Eligibilty will be based on questions</h4>
             <div class="question_heading">
-              <H1>Are you Experiencing Financial Hardship?</H1>
+              <H1>Are You Experiencing Financial Hardship?</H1>
             </div>
             <div class="button-group">
               <h4>Step: 1 of 10</h4>
-              <button @click="stepper('step2')">Yes</button>
-              <button class="dark">No</button>
+              <a class="button is-success is-large blue" @click="stepper('step2')">
+              <span class="icon is-small">
+                <i class="fas fa-check"></i>
+              </span>
+              <span>Yes</span>
+              </a>
+              <a class="button is-large red">
+                <span>No</span>
+                <span class="icon is-small">
+                  <i class="fas fa-times"></i>
+                </span>
+              </a>
             </div>
+           
           </div>
 
           <!--Step 2-->
@@ -21,21 +33,28 @@
             <div class="question_heading">
               <H1>What is your housing status?</H1>
             </div>
-            <div class="user_input">
+            <div class="user_input" >
               <div class="control">
-                <div class="select">
-                  <select>
-                    <option>Select dropdown</option>
-                    <option>Homeowner</option>
+                <div class="select is-medium">
+                  <select v-model="userData.housing">
+                    <option disabled value="">Click To Choose:</option>
                     <option>Renting</option>
-                    <option>Full Time</option>
+                    <option>Homeowner</option>
+                    <option>Homeless / Live in a Shelter</option>
+                    <option>Living With Family / Friend</option>
                   </select>
                 </div>
+                <span>housing choice: {{ userData.housing }}</span>
               </div>
             </div>
             <div class="button-group">
              <h4>Step: 2 of 10</h4>
-             <button @click="stepper('step3')">Next</button>
+              <button class="button is-large next" @click="stepper('step3')" :disabled="userData.housing ===''">
+                <span>Next</span>
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </button>
             </div>
           </div>
 
@@ -45,9 +64,30 @@
             <div class="question_heading">
               <H1>What is you employment status?</H1>
             </div>
+            <div class="user_input" >
+              <div class="control">
+                <div class="select is-medium">
+                  <select>
+                    <option>Click To Choose:</option>
+                    <option>Employed For Wages</option>
+                    <option>Self Employed</option>
+                    <option>Our of Work - Looking For Work</option>
+                    <option>Student</option>
+                    <option>Military</option>
+                    <option>Retired</option>
+                    <option>Unable To Work</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <div class="button_group">
               <h4>Step: 3 of 10</h4>
-              <button @click="stepper('step4')">Next</button>
+               <a class="button is-large next" @click="stepper('step4')">
+                <span>Next</span>
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -59,7 +99,12 @@
             </div>
             <div class="button-group">
               <h4>Step: 4 of 10</h4>
-              <button @click="stepper('step5')">Next</button>
+              <a class="button is-large next" @click="stepper('step5')">
+                <span>Next</span>
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -71,7 +116,12 @@
             </div>
             <div class="button_group">
               <h4>Step: 5 of 10</h4>
-              <button @click="stepper('step6')">Next</button>
+               <a class="button is-large next" @click="stepper('step6')">
+                <span>Next</span>
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -83,7 +133,12 @@
             </div>
             <div class="button_group">
               <h4>Step: 6 of 10</h4>
-              <button @click="stepper('step7')">Next</button>
+              <a class="button is-large next" @click="stepper('step7')">
+                <span>Next</span>
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -97,14 +152,14 @@
               <div class="field">
                   <label class="label">Name</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
+                    <input class="input is-medium" type="text" placeholder="Text input">
                   </div>
               </div>
 
                 <div class="field">
                   <label class="label">Username</label>
                   <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+                    <input class="input is-success is-medium" type="text" placeholder="Text input" value="bulma">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -118,7 +173,7 @@
                 <div class="field">
                   <label class="label">Email</label>
                   <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                    <input class="input is-danger is-medium" type="email" placeholder="Email input" value="hello@">
                     <span class="icon is-small is-left">
                       <i class="fas fa-envelope"></i>
                     </span>
@@ -131,12 +186,16 @@
             </div>
             <div class="button_group">
               <h4>Step: 7 of 10</h4>
-              <button @click="stepper('step6')">Next</button>
+               <a class="button is-large next" @click="stepper('offers')">
+                <span>Click To See Offers</span>
+                <span class="icon is-small">
+                  <i class="fas fa-star"></i>
+                </span>
+              </a>
             </div>
           </div>
-
-
         </transition-group>
+
      </div>
   </div> <!--Vue Div-->
 </template>
@@ -154,9 +213,8 @@ export default {
     return {
       step: 'step1',
       steps:[],
-      housing:'',
       userData: {
-        housing: this.housing
+        housing:''
       },
     }
   },
@@ -176,44 +234,115 @@ export default {
 
 <!--CSS Style, Using SCSS -->
 <style scoped lang="scss">
-  button{
-    padding:1.1em 3em;
+
+  .red{
+    background:red;
     color:white;
-    border: 1px solid lightgray;
-    font-size:1.2em;
-    border-radius:5px;
-    margin:0 10px;
-    font-weight: 800;
-    background:seagreen;
+  }
+  .blue{
+    background:darkblue;
+    color:whit;
+    &:hover{
+      background:darkblue;
+      opacity:0.8;
+    }
+  }
+  .next{
+    background-color:darkblue;
+    color:white;
+  }
+  .questions_wrapper{
+    max-width:600px;
+    margin:0 auto;
   }
   .question_heading{
-    margin:3em 0 3em 0;
-  }
-  .dark{
-    background-color:grayscale($color: #000000)
+    margin:2em 0 3em 0;
   }
   .user_input{
     margin:3em auto;
+    width:305px;
   }
   h1{
-    font-size:2.5em !important;
+    font-size:2.3em !important;
     font-weight: 600;
+    line-height: normal;
   }
   h4{
-    margin-top:2em;
+    margin:1em;
+  }
+  label{
+    text-align:left;
   }
 
 .fade-leave-active,
 .fade-enter-active {
-  transition: 0.5s;
+  transition: 0.2s;
   opacity:0;
 }
 .fade-enter-to{
-   transition: opacity .5s;
+   transition: opacity .2s;
 }
 .fade-leave-to {
-   transition: opacity .5s;
+   transition: opacity .2s;
 }
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #ffffff;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
 
 
   @media only screen and (min-width: 500px) {
