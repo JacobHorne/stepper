@@ -34,7 +34,7 @@ export default {
     opacity:90%;
   }
   .header-faded{
-    background-color:darkblue;
+    background-color:#084CAD;
     height:5px;
     opacity:80%;
   }
