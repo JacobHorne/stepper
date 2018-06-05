@@ -3,7 +3,7 @@
       <div>
         <div class="header">
            <h4 v-if="step <= 6">Step: {{step}} of 7</h4>
-           <h4 v-if="step >= 'offers'">Offer: {{offerCount+1}} of 17</h4>
+           <h4 v-if="step === 'welcome' || step === 'offers'">#FA-{{userData.id}}</h4>
           <img src="../assets/logo.png" @click="step = 1">
         </div>
         <div class="header-fade"></div>
@@ -12,7 +12,6 @@
       </div><!--Vue Div-->
       <div class="questions_wrapper">
         <transition-group name="fade">
-
           <!--Step 1-->
           <div class="question" key="1" v-show="step === 1">
             <h4>Eligibilty will be based on questions</h4>
@@ -218,7 +217,7 @@
             </div>
             <div class="button-group">
                <button class="button is-large next" @click="stepper('welcome')" :disabled="userData.education ===''">
-                <span>Go To Offers</span>
+                <span>View Eligble Programs</span>
                 <span class="icon is-small">
                   <i class="fas fa-arrow-right"></i>
                 </span>
@@ -227,27 +226,28 @@
           </div>
 
           <div class="question" key="7" v-show="step === 'welcome'">
-              <div class="question_heading">
+              <div class="question_heading welcome">
                 <h1 >Welcome, {{userData.first}}</h1>
-                <h2>Get Started Today! Your Programs and Benefits Are Ready.</h2>
+                <h2 >Get Started Today! Your Programs and Benefits Are Ready.</h2>
+                <h3>Membership Id: FA-{{userData.id}}</h3>
               </div>
-
               <div>
                 <ul>
                   <li>Start Navigating Your Top Sponsored Programs Below.</li>
-                  <li>Click "Show Me Offers" to Learn More About The Programs.</li>
+                  <li>Click <span style="font-weight:600;">"Show Me Programs"</span> to Learn More About The Next Program.</li>
                 </ul>
               </div>
 
-
               <div class="button-group">
                 <button class="button is-large blue" @click="stepper('offers')">
-                  <span>Show Me Offers</span>
+                  <span>Show Me Programs</span>
                   <span class="icon is-small">
                     <i class="fas fa-arrow-right"></i>
                   </span>
                 </button>
               </div>
+
+              <!-- <div class="welcome-ad"></div> -->
           </div>
           <div class="offer" key="8" v-show="step === 'offers'">
               <div class="offer_header">
@@ -262,7 +262,7 @@
                     <i class="fas fa-check"></i>
                   </span>
                 </button>
-                <button @click="offerNext()" class="button is-large red">
+                <button @click="nextOffer()" class="button is-large red">
                   <span>Next</span>
                   <span class="icon is-small">
                     <i class="fas fa-arrow-right"></i>
@@ -282,7 +282,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 1,
+      step: 'welcome',
       offerCount:0,
       steps:[],
       userData: {
@@ -295,6 +295,7 @@ export default {
         age:'',
         first:'',
         last:'',
+        id: Math.floor(1000000 + Math.random() * 900000)
       },
       offers:[
         {title:'Use HARP – Let The Government Pay For Your Mortgage', 
@@ -314,6 +315,7 @@ export default {
       ],
     }
   },
+  
   methods: {
     stepper(step){
       this.step = step
@@ -321,12 +323,11 @@ export default {
     seeOffer(){
       window.open(`https://${this.offers[this.offerCount].link}`)
     },
-    offerNext(){
+    nextOffer(){
       this.offerCount++;
-      var element = document.getElementsByClassName("ad");
-      // element.classList.add("hidden");
-    }
-  }
+    },
+
+  },
 }
 </script>
 
@@ -334,10 +335,11 @@ export default {
 <style scoped lang="scss">
   .button{
     font-size:1.8em;
-    width:80%;
+    width:90%;
     margin-top:15px;
     max-width: 305px;
     text-align:center;
+    opacity:1;
   }
   .button-group{
     text-align:center;
@@ -390,7 +392,8 @@ export default {
   }
   ul{
     list-style-type: square;
-    width:400px;
+    max-width:400px;
+    width:80%;
     margin:0 auto 2em auto;
     
   }
@@ -411,6 +414,36 @@ export default {
       width:50%;
     }
   }
+  .welcome{
+    h1{
+     margin:10px 0;
+     text-align:left;
+    }
+    h2{
+      text-align: left;
+      font-size:1.4em;
+    }
+    h3{
+      border-radius: 4px;
+      padding:0.8em;
+      margin:1em 0;
+      font-size:1.3em;
+      background-color:rgba(230,50,100,0.2);
+      font-weight:600;
+    }
+    ul{
+      text-align:left;
+    }
+  }
+  .welcome-ad{
+      height: 300px;
+      width: 100%;
+      background-repeat: no-repeat;
+      margin: 1em 0;
+      background-position: center;
+      background-size: cover;
+      background-image: url('../assets/house-mortgage.jpg');
+  }
   .offer{
     .ad{
       height: 300px;
@@ -423,6 +456,7 @@ export default {
     h1{
       font-size:1.6em !important;
       margin:1em 0;
+      text-align:left;
     }
     p{
       opacity:0.9;
@@ -442,6 +476,9 @@ export default {
       right:0;
       top:5px;
     }
+    img{
+      max-width:200px;
+    }
   }
   .header-fade{
     background-color:red;
@@ -457,9 +494,7 @@ export default {
   h2{
     margin:0;
   }
-  img{
-    max-width:200px;
-  }
+  
   .fade-leave-active,
   .fade-enter-active {
     transition: 0.2s;
