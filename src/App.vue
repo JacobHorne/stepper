@@ -52,7 +52,6 @@ html {
   clear: both;
 }
 .wrapper{
-  width:98%;
   margin:0 auto;
 }
 </style>

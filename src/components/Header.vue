@@ -1,11 +1,11 @@
 <template>
   <div>
-     <div class="header">
+     <!-- <div class="header">
      <img src="../assets/logo.png">
      </div>
      <div class="header-fade"></div>
-     <div class="header-faded"></div>
-  </div><!--Vue Div-->
+     <div class="header-faded"></div> -->
+  </div>
 </template>
 
 <script>
