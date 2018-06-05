@@ -3,7 +3,7 @@
       <div class="questions_wrapper">
         <transition-group name="fade">
           <!--Step 1-->
-          <div class="question" key="1" v-show="step === ''">
+          <div class="question" key="1" v-show="step === 'step1'">
             <h4>Eligibilty will be based on questions</h4>
             <div class="question_heading">
               <H1>Are You Experiencing Financial Hardship?</h1>
@@ -97,7 +97,7 @@
                 </div>
               </div>
             </div>
-            <div class="button_group">
+            <div class="button-group">
               <h4>Step: 3 of 7</h4>
                <button class="button is-large next" @click="stepper('step4')" :disabled="userData.employment === ''  || userData.age === '' || userData.gender === ''">
                 <span>Next</span>
@@ -159,8 +159,8 @@
                 </div>
               </div>
             </div>
-            <div class="button_group">
-              <h4>Step: 6 of 7 </h4>
+            <div class="button-group">
+              <h4>Step: 5 of 7 </h4>
                <button class="button is-large next" @click="stepper('step6')" :disabled="userData.education ===''">
                 <span>Next</span>
                 <span class="icon is-small">
@@ -199,7 +199,7 @@
                 <div class="field">
                   <label class="label">Email</label>
                   <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger is-medium" type="email" placeholder="john@doe.com" v-model="userData.email">
+                    <input class="input is-medium" type="email" placeholder="john@doe.com" v-model="userData.email">
                     <span class="icon is-small is-left">
                       <i class="fas fa-envelope"></i>
                     </span>
@@ -210,7 +210,7 @@
                   <!-- <p class="help is-danger">This email is invalid</p> -->
                 </div>
             </div>
-            <div class="button_group">
+            <div class="button-group">
               <h4>Step: 7 of 7</h4>
                <button class="button is-large next" @click="stepper('welcome')" :disabled="userData.education ===''">
                 <span>Go To Offers</span>
@@ -221,21 +221,43 @@
             </div>
           </div>
 
-          <div class="offer" key="7" v-show="step === 'welcome'">
-              <h4>Your Member-ID:A54-22-1345</h4>
-              <div>
-                <H1>Welcome, You Qualify For 8 offers</H1>
-                <p>This willl be some Text about the offer</p>
+          <div class="question" key="7" v-show="step === 'welcome'">
+              <div class="question_heading">
+                <h1 >Welcome, {{userData.first}}</h1>
+                <h2>Get Started Today! Your Programs and Benefits Are Ready.</h2>
               </div>
 
+              <div>
+                <ul>
+                  <li>Start Navigating Your Top Sponsored Programs Below.</li>
+                  <li>Click "Show Me Offers" to Learn More About The Programs.</li>
+                </ul>
+              </div>
+
+
+              <div class="button-group">
+                <button class="button is-large blue" @click="stepper('offers')">
+                  <span>Show Me Offers</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </div>
+          </div>
+          <div class="offer" key="8" v-show="step === 'offers'">
+              <div class="offer_header">
+                <h1>{{offers[offerCount].title}}</h1>
+                <p>{{offers[offerCount].details}}</p>
+              </div>
+              <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad"></div> 
               <div class="offer-buttons">
-                <button class="button is-large blue">
+                <button @click="seeOffer();" class="button is-large blue">
                   <span>View</span>
                   <span class="icon is-small">
                     <i class="fas fa-check"></i>
                   </span>
                 </button>
-                <button class="button is-large red">
+                <button @click="offerNext()" class="button is-large red">
                   <span>Next</span>
                   <span class="icon is-small">
                     <i class="fas fa-arrow-right"></i>
@@ -243,35 +265,7 @@
                 </button>
               </div>
           </div>
-        
-
-
-          
-          
-          <div class="offer" key="8" v-show="step === 'step1'">
-              <h4>Your Member-ID:A54-22-1345</h4>
-              <div>
-                <H1>{{offers[i].title}}</H1>
-                <p>{{offers[i].details}}</p>
-              </div>
-              <!-- <div :style="{ backgroundImage : 'url(\'' + offers[0].image + '\')', width: '400px', height: '400px' }"></div> -->
-              <div style="background-image: url(../assets/senior.png);height:400px;width:400px;display:block;"></div>
-              <div class="offer-buttons">
-                <button class="button is-large blue">
-                  <span @click="wtf();">View</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </button>
-                <button class="button is-large red">
-                  <span @click="i++">Next</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-arrow-right"></i>
-                  </span>
-                </button>
-              </div>
-          </div>
-        </transition-group>
+         </transition-group>
      </div>
      
   </div> <!--Vue Div-->
@@ -284,7 +278,7 @@ export default {
   data () {
     return {
       step: 'step1',
-      i:0,
+      offerCount:0,
       steps:[],
       userData: {
         housing:'',
@@ -298,20 +292,20 @@ export default {
         last:'',
       },
       offers:[
-        {title:'17 Reasons Why', 
-         image:'../assets/logo.png', 
-         details:'This is a description', 
-         link:'google.com'},
+        {title:'Use HARP – Let The Government Pay For Your Mortgage', 
+         image: require('../assets/house-mortgage.jpg'), 
+         details:'Details: The Home Affordable Refinance Plan (HARP) was passed to help Americans reduce their monthly payments by as much as $4,264 each year. The program was set to expire in 2017 but has been extended to 2018. Check if you meet the basic eligibility requirements on the official HARP site and see if you’ll get approved.', 
+         link:'harpsurvey.com/?sced=0&req_id=97394130&s1=160001&a=23&o=1021'},
 
-        {title:'Another One', 
-        image:"https://imgur.com/gallery/OM1jAhs", 
-        details:'Zombie Cat', 
+        {title:'21 Senior Discounts', 
+        image: require('../assets/senior.jpg'),
+        details:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 
         link:'yahoo.com'},
 
-        {title:'Frontline Image', 
-        image:"https://imgur.com/gallery/Wfarer4", 
-        details:'This is a dog', 
-        link:'espn.com'}
+        {title:'NewDayUSA Offer', 
+        image: require('../assets/newday.jpg'),
+        details:'consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh', 
+        link:'www.espn.com'}
       ],
     }
   },
@@ -319,8 +313,13 @@ export default {
     stepper(step){
       this.step = step;
     },
-    wtf(){
-      console.log(this.offers[0].image)
+    seeOffer(){
+      window.open(`https://${this.offers[this.offerCount].link}`)
+    },
+    offerNext(){
+      this.offerCount++;
+      var element = document.getElementsByClassName("ad");
+      // element.classList.add("hidden");
     }
   }
 }
@@ -339,6 +338,10 @@ export default {
     width:80%;
     margin-top:15px;
     max-width: 305px;
+    text-align:center;
+  }
+  .button-group{
+    text-align:center;
   }
   .red{
     background:red;
@@ -366,9 +369,11 @@ export default {
   .questions_wrapper{
     max-width:600px;
     margin:0 auto;
+    width:96%;
   }
   .question_heading{
     margin:2em 0 3em 0;
+    text-align:center;
   }
   .user_input{
     margin:1.8em auto;
@@ -378,9 +383,17 @@ export default {
     font-size:2.3em !important;
     font-weight: 600;
     line-height: normal;
+    text-align:center;
   }
   h4{
     margin:1em;
+    text-align:center;
+  }
+  ul{
+    list-style-type: square;
+    width:400px;
+    margin:0 auto 2em auto;
+    
   }
   label{
     text-align:left;
@@ -388,39 +401,59 @@ export default {
   select,input{
     border: 2px solid #363636;
     min-width:305px;
+    color:lightslategray;
   }
-.offer-buttons{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  .button{
-    float:left;
-    width:49%;
+  .offer-buttons{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    .button{
+      float:left;
+      width:50%;
+    }
   }
-}
-.fade-leave-active,
-.fade-enter-active {
-  transition: 0.2s;
-  opacity:0;
-}
-.fade-enter-to{
-   transition: opacity .2s;
-}
-.fade-leave-to {
-   transition: opacity .2s;
-}
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: lightslategrey;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: lightslategrey;
-}
-:-ms-input-placeholder { /* IE 10+ */
-   color: lightslategrey;
-}
-:-moz-placeholder { /* Firefox 18- */
-   color: lightslategrey;
-}
+  .offer{
+    .ad{
+      height: 300px;
+      width: 100%;
+      background-repeat: no-repeat;
+      margin: 1em 0;
+      background-position: center;
+      background-size: cover;
+    }
+    h1{
+      font-size:1.6em !important;
+      margin:1em 0;
+    }
+    p{
+      opacity:0.9;
+      font-size:0.9em;
+    }
+  }
+  .fade-leave-active,
+  .fade-enter-active {
+    transition: 0.2s;
+    opacity:0;
+  }
+  .fade-enter-to{
+    transition: opacity .2s;
+  }
+  .fade-leave-to {
+    transition: opacity .2s;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: lightslategrey;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: lightslategrey;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: lightslategrey;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: lightslategrey;
+  }
 
 @media only screen and (min-width: 500px) {
   button {

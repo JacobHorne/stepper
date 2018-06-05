@@ -25,7 +25,8 @@ export default {
   .header{
     background-color:white;
     color:White;
-    padding:1.3em 0;
+    padding:1.3em 1em;
+    text-align:left;
   }
   .header-fade{
     background-color:red;
@@ -43,6 +44,5 @@ export default {
   }
   img{
     max-width:200px;
-    margin:0 auto;
   }
 </style>
