@@ -4,7 +4,7 @@
         <div class="header">
            <h4 v-if="step <= 6">Step: {{step}} of 7</h4>
            <h4 v-if="step === 'welcome' || step === 'offers'">#FA-{{userData.id}}</h4>
-          <img src="../assets/logo.png" @click="step = 1">
+           <img src="/assets/logo.png" @click="step = 1">
         </div>
         <div class="header-fade"></div>
         <div class="header-faded"></div>
@@ -227,7 +227,7 @@
 
           <div class="question" key="7" v-show="step === 'welcome'">
               <div class="question_heading welcome">
-                <h1 >Welcome, {{userData.first}}</h1>
+                <h1 >Welcome, {{userData.first | capitalize}}</h1>
                 <h2 >Get Started Today! Your Programs and Benefits Are Ready.</h2>
                 <h3>Membership Id: FA-{{userData.id}}</h3>
               </div>
@@ -282,7 +282,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 'welcome',
+      step: 1,
       offerCount:0,
       steps:[],
       userData: {
@@ -338,16 +338,22 @@ export default {
     nextOffer(){
       this.offerCount++;
     },
-
   },
+  filters: {
+  capitalize: function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  }
 }
 </script>
 
 <!--CSS Style, Using SCSS -->
 <style scoped lang="scss">
   .button{
-    font-size:1.8em;
-    width:90%;
+    font-size:1.7em;
+    width:100%;
     margin-top:15px;
     max-width: 340px;
     text-align:center;
@@ -440,7 +446,7 @@ export default {
       padding:0.8em;
       margin:1em 0;
       font-size:1.3em;
-      background-color:rgba(230,50,100,0.2);
+      background-color:rgba(120, 135, 208, 0.2);
       font-weight:600;
     }
     ul{
