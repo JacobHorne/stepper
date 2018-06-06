@@ -298,20 +298,32 @@ export default {
         id: Math.floor(1000000 + Math.random() * 900000)
       },
       offers:[
+        {title:'Cover Unexpected Repair Costs with a Home Warranty', 
+         image: require('../assets/warranty.jpg'), 
+         details:`Total Home Protection has a warranty plan for all home owners. For as low as 1 dollar, your home and your wallet are protected. With this one-of-a-kind plan, you’ll never have to worry about financing costly repair.
+            
+            In the plan, you get the FIRST MONTH FREE + 50% off. Purchase Your Warranty Today and never have to pay for costly repairs on appliances.`, 
+         link:'https://totalhomeprotectionquote.com/landing/thp-budget-madrivodisplay50/?imt=1&utm_campaign=Warranty&utm_source=madrivodisplay50&utm_medium=PPC&utm_content=Budget&utm_term=160001.adv2876'},
+
         {title:'Use HARP – Let The Government Pay For Your Mortgage', 
          image: require('../assets/house-mortgage.jpg'), 
          details:'Details: The Home Affordable Refinance Plan (HARP) was passed to help Americans reduce their monthly payments by as much as $4,264 each year. The program was set to expire in 2017 but has been extended to 2018. Check if you meet the basic eligibility requirements on the official HARP site and see if you’ll get approved.', 
          link:'harpsurvey.com/?sced=0&req_id=97394130&s1=160001&a=23&o=1021'},
 
-        {title:'21 Senior Discounts', 
-        image: require('../assets/senior.jpg'),
-        details:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 
-        link:'yahoo.com'},
+        {title:'Save Cash While Settling Your Debt', 
+        image: require('../assets/debt.jpg'),
+        details:'Talk to a debt counselor and allow them to negotiate better terms you’re your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They’re BBB+ accredited and an AFCC accredited member for ethical standards.', 
+        link:'https://www.acreliefnetwork.com/landing-pages/11/?utm_source=16&utm_campaign=726&dko=8k2019&affiliate_id=16&offer_id=13&subid1=160001&subid2=451304308&subid3=adv2055&subid4=&subid5=&click_id=1423941&request_id=555378&campaign_id=726'},
 
-        {title:'NewDayUSA Offer', 
-        image: require('../assets/newday.jpg'),
-        details:'consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh', 
-        link:'www.espn.com'}
+        {title:'Discount on Car Insurance', 
+        image: require('../assets/car-insurance.jpg'),
+        details:'View the quotes from hundreds of top insurance companies, save time and save cash on the best policy by as much as 50% of your monthly insurance premiums. The Zebra will help you find better and affordable deals on car insurance costing as little as $27 a month. With the deals from The Zebra, more than 5 million people have saved an average of 368 dollars per year on car insurance premiums.', 
+        link:'https://www.thezebra.com/compare/start/vc7901/?utm_source=rbus41&utm_medium=affiliate&utm_campaign=native&channelid=rbus41&subid=160001&subid2=451020278&subid3=adv3297&subid4=&subid5=&subid6=0&adid=1020d9555e07868045689dc5ab6c93'},
+
+        {title:'Save on Life Insurance', 
+        image: require('../assets/life-insurance.jpg'),
+        details:'The Life Insurance.net team has gone out of the way to source the most affordable yet reliable insurance plans for you. The plans offer coverage from a little as $5K-$1M. And the deal on Life Insurance Plans gets even sweeter; no medical check-ups guaranteed acceptance into the plans, and simply the best-priced plans with a 30-Money back guarantee.', 
+        link:'https://app.lifeinsurance.net/landing/life-insurance-tcpa1?utm_source=madrivo&utm_medium=paid&utm_campaign=160001&utm_content=451024691&utm_term=%7Butm_term%7D&offer_id=75&transaction_id=102eff5776d63265cd4872d63acaf7&aff_sub=160001&aff_sub5=&aff_sub3=adv3289&aff_sub2=451024691&aff_sub4='}
       ],
     }
   },
@@ -337,7 +349,7 @@ export default {
     font-size:1.8em;
     width:90%;
     margin-top:15px;
-    max-width: 305px;
+    max-width: 340px;
     text-align:center;
     opacity:1;
   }
