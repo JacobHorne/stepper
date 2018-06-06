@@ -4,7 +4,7 @@
         <div class="header">
            <h4 v-if="step <= 6">Step: {{step}} of 7</h4>
            <h4 v-if="step === 'welcome' || step === 'offers'">#FA-{{userData.id}}</h4>
-           <img src="/assets/logo.png" @click="step = 1">
+           <img src="../assets/logo.png" @click="step = 1">
         </div>
         <div class="header-fade"></div>
         <div class="header-faded"></div>
@@ -351,6 +351,7 @@ export default {
 
 <!--CSS Style, Using SCSS -->
 <style scoped lang="scss">
+  
   .button{
     font-size:1.7em;
     width:100%;
@@ -537,7 +538,6 @@ export default {
   :-moz-placeholder { /* Firefox 18- */
     color: lightslategrey;
   }
-
 @media only screen and (min-width: 500px) {
   button {
         
