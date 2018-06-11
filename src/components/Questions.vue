@@ -257,12 +257,15 @@
               </div> 
               <div class="offer_details">
                  <h2>Benefits:</h2>
-                 <div><span class="icon is-small"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
-                 <div><span class="icon is-small"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
+                 <div><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
+                 <div><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.two}}</span></div>
                  <h2>Details:</h2>
-                 <div><span class="icon is-small"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].details}}</span></div>
+                 <div class="group">
+                   <div style="width:7%;float:left;"><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span></div>
+                   <div style="width:80%;float:left;text-align:left;"><span style="margin-left:0;">{{offers[offerCount].details}}</span></div>
+                 </div>
               </div>
-              <div class="offer-buttons">
+              <div style="background-color:light-grey;" class="offer-buttons">
                 <button @click="seeOffer();" class="button is-large blue">
                   <span>View</span>
                   <span class="icon is-small">
@@ -488,15 +491,15 @@ export default {
     .offer_details{
       background-color:#F7F7F7;
       padding:1.5em 2em;
-      box-shadow: 5px 5px 25px 0 rgba(46,61,73,.1);
       h2{
         font-size:1.3em;
         font-weight:600;
         margin:10px 0;
       }
       .icon{
-        color:green;
-        vertical-align: bottom;
+        color:#1BDD61;
+        vertical-align: middle;
+        font-weight:900;
       }
       span{
         color:#60666E;
