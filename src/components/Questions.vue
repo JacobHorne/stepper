@@ -6,8 +6,8 @@
            <h4 v-if="step === 'welcome' || step === 'offers'">#FA-{{userData.id}}</h4>
            <img src="../assets/logo.png" @click="step = 1">
         </div>
-        <div class="header-fade"></div>
-        <div class="header-faded"></div>
+        <div v-if="step != 'offers'" class="header-fade"></div>
+        <div v-if="step != 'offers'" class="header-faded"></div>
        
       </div><!--Vue Div-->
       <div class="questions_wrapper">
@@ -250,11 +250,18 @@
               <!-- <div class="welcome-ad"></div> -->
           </div>
           <div class="offer" key="8" v-show="step === 'offers'">
+              
+              <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad"></div>
               <div class="offer_header">
                 <h1>{{offers[offerCount].title}}</h1>
-                <p>{{offers[offerCount].details}}</p>
+              </div> 
+              <div class="offer_details">
+                 <h2>Benefits:</h2>
+                 <div><span class="icon is-small"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
+                 <div><span class="icon is-small"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
+                 <h2>Details:</h2>
+                 <div><span class="icon is-small"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].details}}</span></div>
               </div>
-              <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad"></div> 
               <div class="offer-buttons">
                 <button @click="seeOffer();" class="button is-large blue">
                   <span>View</span>
@@ -282,7 +289,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 1,
+      step: 'offers',
       offerCount:0,
       steps:[],
       userData: {
@@ -300,9 +307,8 @@ export default {
       offers:[
         {title:'Cover Unexpected Repair Costs with a Home Warranty', 
          image: require('../assets/warranty.jpg'), 
-         details:`Total Home Protection has a warranty plan for all home owners. For as low as 1 dollar, your home and your wallet are protected. With this one-of-a-kind plan, you’ll never have to worry about financing costly repair.
-            
-            In the plan, you get the FIRST MONTH FREE + 50% off. Purchase Your Warranty Today and never have to pay for costly repairs on appliances.`, 
+         details:`Total Home Protection has a warranty plan for all home owners. For as low as 1 dollar, your home and your wallet are protected. With this one-of-a-kind plan, you’ll never have to worry about financing costly repair. In the plan, you get the FIRST MONTH FREE + 50% off. Purchase Your Warranty Today and never have to pay for costly repairs on appliances.`,
+         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'},
          link:'https://totalhomeprotectionquote.com/landing/thp-budget-madrivodisplay50/?imt=1&utm_campaign=Warranty&utm_source=madrivodisplay50&utm_medium=PPC&utm_content=Budget&utm_term=160001.adv2876'},
 
         {title:'Use HARP – Let The Government Pay For Your Mortgage', 
@@ -312,17 +318,20 @@ export default {
 
         {title:'Save Cash While Settling Your Debt', 
         image: require('../assets/debt.jpg'),
-        details:'Talk to a debt counselor and allow them to negotiate better terms you’re your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They’re BBB+ accredited and an AFCC accredited member for ethical standards.', 
+        details:'Talk to a debt counselor and allow them to negotiate better terms you’re your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They’re BBB+ accredited and an AFCC accredited member for ethical standards.',
+        benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
         link:'https://www.acreliefnetwork.com/landing-pages/11/?utm_source=16&utm_campaign=726&dko=8k2019&affiliate_id=16&offer_id=13&subid1=160001&subid2=451304308&subid3=adv2055&subid4=&subid5=&click_id=1423941&request_id=555378&campaign_id=726'},
 
         {title:'Discount on Car Insurance', 
         image: require('../assets/car-insurance.jpg'),
-        details:'View the quotes from hundreds of top insurance companies, save time and save cash on the best policy by as much as 50% of your monthly insurance premiums. The Zebra will help you find better and affordable deals on car insurance costing as little as $27 a month. With the deals from The Zebra, more than 5 million people have saved an average of 368 dollars per year on car insurance premiums.', 
+        details:'View the quotes from hundreds of top insurance companies, save time and save cash on the best policy by as much as 50% of your monthly insurance premiums. The Zebra will help you find better and affordable deals on car insurance costing as little as $27 a month. With the deals from The Zebra, more than 5 million people have saved an average of 368 dollars per year on car insurance premiums.',
+        benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
         link:'https://www.thezebra.com/compare/start/vc7901/?utm_source=rbus41&utm_medium=affiliate&utm_campaign=native&channelid=rbus41&subid=160001&subid2=451020278&subid3=adv3297&subid4=&subid5=&subid6=0&adid=1020d9555e07868045689dc5ab6c93'},
 
         {title:'Save on Life Insurance', 
         image: require('../assets/life-insurance.jpg'),
-        details:'The Life Insurance.net team has gone out of the way to source the most affordable yet reliable insurance plans for you. The plans offer coverage from a little as $5K-$1M. And the deal on Life Insurance Plans gets even sweeter; no medical check-ups guaranteed acceptance into the plans, and simply the best-priced plans with a 30-Money back guarantee.', 
+        details:'The Life Insurance.net team has gone out of the way to source the most affordable yet reliable insurance plans for you. The plans offer coverage from a little as $5K-$1M. And the deal on Life Insurance Plans gets even sweeter; no medical check-ups guaranteed acceptance into the plans, and simply the best-priced plans with a 30-Money back guarantee.',
+        benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
         link:'https://app.lifeinsurance.net/landing/life-insurance-tcpa1?utm_source=madrivo&utm_medium=paid&utm_campaign=160001&utm_content=451024691&utm_term=%7Butm_term%7D&offer_id=75&transaction_id=102eff5776d63265cd4872d63acaf7&aff_sub=160001&aff_sub5=&aff_sub3=adv3289&aff_sub2=451024691&aff_sub4='}
       ],
     }
@@ -368,7 +377,6 @@ export default {
     color:white;
     &:hover{
       background:red;
-      opacity:0.8;
     }
   }
   .blue{
@@ -376,7 +384,6 @@ export default {
     color:white;
     &:hover{
       background:#084CAD;
-      opacity:0.8;
     }
   }
   .button[disabled]{
@@ -468,14 +475,33 @@ export default {
       height: 300px;
       width: 100%;
       background-repeat: no-repeat;
-      margin: 1em 0;
+      margin: 0em 0;
       background-position: center;
       background-size: cover;
     }
-    h1{
+    .offer_header > h1{
       font-size:1.6em !important;
       margin:1em 0;
       text-align:left;
+      font-weight:900;
+    }
+    .offer_details{
+      background-color:#F7F7F7;
+      padding:1.5em 2em;
+      box-shadow: 5px 5px 25px 0 rgba(46,61,73,.1);
+      h2{
+        font-size:1.3em;
+        font-weight:600;
+        margin:10px 0;
+      }
+      .icon{
+        color:green;
+        vertical-align: bottom;
+      }
+      span{
+        color:#60666E;
+        margin-left:10px;
+      }
     }
     p{
       opacity:0.9;
