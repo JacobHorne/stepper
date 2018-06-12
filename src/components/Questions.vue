@@ -8,15 +8,15 @@
         </div>
         <div v-if="step != 'offers'" class="header-fade"></div>
         <div v-if="step != 'offers'" class="header-faded"></div>
-       
+      
       </div><!--Vue Div-->
       <div class="questions_wrapper">
         <transition-group name="fade">
           <!--Step 1-->
           <div class="question" key="1" v-show="step === 1">
-            <h4>Eligibilty will be based on questions</h4>
+            <h4>Take This 30 Second Survey to Check Your Eligibility For Assistance.</h4>
             <div class="question_heading">
-              <H1>Are You Experiencing Financial Hardship?</h1>
+              <h1>Are You Experiencing Financial Hardship?</h1>
             </div>
             <div class="button-group">
               <a class="button is-success is-large blue" @click="stepper(2)">
@@ -32,6 +32,19 @@
                 </span>
               </a>
             </div>
+
+            <div class="group">
+              <div style="width:30%;float:left;margin-right:3%;">
+                  <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation.</p>
+              </div>
+              <div style="width:30%;float:left;margin-right:3%;">
+                <p>100% free enrollment for qualifying citizens of the United States who are experiencing financial hardship, and acess to community based support, assistance, news, and discussions.</p>
+              </div>
+              <div style="width:30%;float:left;margin-right:3%;">
+                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts.</p>
+              </div>
+            </div>
+
           </div>
 
           <!--Step 2-->
@@ -217,7 +230,7 @@
             </div>
             <div class="button-group">
                <button class="button is-large next" @click="stepper('welcome')" :disabled="userData.education ===''">
-                <span>View Eligble Programs</span>
+                <span>View Eligible Programs</span>
                 <span class="icon is-small">
                   <i class="fas fa-arrow-right"></i>
                 </span>
@@ -232,9 +245,9 @@
                 <h3>Membership Id: FA-{{userData.id}}</h3>
               </div>
               <div>
-                <ul>
-                  <li>Start Navigating Your Top Sponsored Programs Below.</li>
-                  <li>Click <span style="font-weight:600;">"Show Me Programs"</span> to Learn More About The Next Program.</li>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right fa-lg"></i></span>Start Navigating Your Top Sponsored Programs Below.</li>
+                  <li><span class="fa-li"><i class="far fa-check fa-lg"></i></span>Click <span style="font-weight:600;">"Show Me Programs"</span> to Learn More About The Next Program.</li>
                 </ul>
               </div>
 
@@ -257,12 +270,12 @@
               </div> 
               <div class="offer_details">
                  <h2>Benefits:</h2>
-                 <div><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
-                 <div><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.two}}</span></div>
+                 <div class="benefit"><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.one}}</span></div>
+                 <div class="benefit"><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span><span>{{offers[offerCount].benefit.two}}</span></div>
                  <h2>Details:</h2>
                  <div class="group">
-                   <div style="width:7%;float:left;"><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span></div>
-                   <div style="width:80%;float:left;text-align:left;"><span style="margin-left:0;">{{offers[offerCount].details}}</span></div>
+                   <div style="width:40px;float:left;"><span class="icon is-small fa-lg"><i class="far fa-check-circle fa-lg"></i></span></div>
+                   <div style="width:82%;float:left;text-align:left;"><span style="margin-left:0;">{{offers[offerCount].details}}</span></div>
                  </div>
               </div>
               <div style="background-color:light-grey;" class="offer-buttons">
@@ -292,7 +305,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 'offers',
+      step: 'welcome',
       offerCount:0,
       steps:[],
       userData: {
@@ -316,7 +329,8 @@ export default {
 
         {title:'Use HARP – Let The Government Pay For Your Mortgage', 
          image: require('../assets/house-mortgage.jpg'), 
-         details:'Details: The Home Affordable Refinance Plan (HARP) was passed to help Americans reduce their monthly payments by as much as $4,264 each year. The program was set to expire in 2017 but has been extended to 2018. Check if you meet the basic eligibility requirements on the official HARP site and see if you’ll get approved.', 
+         details:'Details: The Home Affordable Refinance Plan (HARP) was passed to help Americans reduce their monthly payments by as much as $4,264 each year. The program was set to expire in 2017 but has been extended to 2018. Check if you meet the basic eligibility requirements on the official HARP site and see if you’ll get approved.',
+         benefit:{one:'Reduced Payments', two:'Extended to 2018'}, 
          link:'harpsurvey.com/?sced=0&req_id=97394130&s1=160001&a=23&o=1021'},
 
         {title:'Save Cash While Settling Your Debt', 
@@ -335,7 +349,115 @@ export default {
         image: require('../assets/life-insurance.jpg'),
         details:'The Life Insurance.net team has gone out of the way to source the most affordable yet reliable insurance plans for you. The plans offer coverage from a little as $5K-$1M. And the deal on Life Insurance Plans gets even sweeter; no medical check-ups guaranteed acceptance into the plans, and simply the best-priced plans with a 30-Money back guarantee.',
         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
-        link:'https://app.lifeinsurance.net/landing/life-insurance-tcpa1?utm_source=madrivo&utm_medium=paid&utm_campaign=160001&utm_content=451024691&utm_term=%7Butm_term%7D&offer_id=75&transaction_id=102eff5776d63265cd4872d63acaf7&aff_sub=160001&aff_sub5=&aff_sub3=adv3289&aff_sub2=451024691&aff_sub4='}
+        link:'https://app.lifeinsurance.net/landing/life-insurance-tcpa1?utm_source=madrivo&utm_medium=paid&utm_campaign=160001&utm_content=451024691&utm_term=%7Butm_term%7D&offer_id=75&transaction_id=102eff5776d63265cd4872d63acaf7&aff_sub=160001&aff_sub5=&aff_sub3=adv3289&aff_sub2=451024691&aff_sub4='},
+        
+        {title:'Grab A Complete Security System For FREE', 
+        image: require('../assets/adt.jpg'),
+        details:'ADT is committed to helping you protect our home and is offering a complete security for free. Not only will you will be protecting you home and valuables but most homeowners insurance policies will give you an additional discount once it is installed!',
+        benefit:{one:'FREE HOME SECURITY SYSTEM', two: `ADDED HOME OWNER'S DISCOUNT`}, 
+        link:'http://www.installed-security.com/syh6/adt-home-security-systems.php?utm_source=58&utm_promo=197&utm_campaign=161393463003329SP&offerid=33'},
+        
+        {title:'Save on Medical Costs', 
+        image: require('../assets/medicare.jpg'),
+        details:'For Seniors, healthcare is essential. The costs of prescriptions continue to rise and almost all seniors take some form of medicine. You may be eligible for extra benefits from your Medicare insurance plan. Check to see if you can cut cost on dental, vision, hearing, even arthritis treatments amongst others.',
+        benefit:{one:'LOWER SENIOR MEDICAL COSTS', two:'SAVE ON DENTAL, VISION, AND HEARING'}, 
+        link:'https://www.medicare-providers.net/plans/index.php?Referrer=MAD2&Subreferrer=161393&utm_source=463004505&utm_medium=email&utm_content=medicare&utm_campaign=27729'},
+        
+        {title:'Stay Updated On Discounts And Offers', 
+        image: require('../assets/discounts.jpg'),
+        details:'Join Find Assistance for FREE. Take a 30 second survey and qualify to join. FA will keep you updated on programs and discounts that will save you money.',
+        benefit:{one:'FREE AND FAST SURVEY', two:'PROGRAMS AND DISCOUNTS DELIVERED FOR FREE'}, 
+        link:'http://findassistance.org'},
+
+        {title:'Save Cash While Settling Your Debt', 
+        image: require('../assets/debt-2.jpg'),
+        details:`Talk to a debt counselor and allow them to negotiate better terms youre your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They're BBB+ accredited and an AFCC accredited member for ethical standards.`,
+        benefit:{one:'CONTACT A DEBT COUNSELOR', two:'GET OUT OF DEBT AND AVOID BANKRUPTCY'},
+        link:'https://apply.nationaldebtrelief.com/?src=leadi2&aff_sub=19&aff_sub2=1114018&aff_sub3=161393'},
+
+        {title:'Get Paid For Your Opinions', 
+        image: require('../assets/opinions.jpg'),
+        details:'Put your free time to work and get paid for sharing your opinion regarding products and services. You fill out the registration and Survey Junkie will match you with surveys that you complete to earn rewards and virtual points that can be redeemed through Paypal or e-Giftcards. Its a fun way to earn in your extra time.',
+        benefit:{one:'TURN YOUR TIME INTO $$$', two:'GET PAID FOR YOUR OPINION'}, 
+        link:'https://www.surveyjunkie.com/lp36?a=140&s1=161393&rid=54969809'},
+
+        {title:'Dining Out Discounts', 
+        image: require('../assets/dining.jpg'),
+        details:`When you dont feel like cooking here is a list of restaurants that offer senior deals. Keep in mind that some deals and discounts may vary by location and can change without notice.
+
+          - Arby's: 10% discount for those over 55.
+          - Chick-fil-a: Free small drink or coffee plus a 10% discount for those 55+
+          - Waffle House: 10% meals on Mondays for seniors 60+
+          - Burger King: 10% discount for those 60 and older.
+          - Steak and Shake: 10% discount on certain days for 55+
+          - Captain D's: Discount on select days for seniors 62 and older.
+          - McDonald's: Discounts on coffee and beverages (55+)
+          - IHOP: 10% discount (55+) and a menu for people aged 55 and over at participating locations
+          - Subway: 10% off for seniors 60+
+          - Golden Corral: 10% off for seniors 60+
+          - Papa John's: Save 25% if you are over 55 or an AARP member
+          - Krispy Kreme: 10% discount (50+)
+          - Chilis Grill and Bar: 10% discount for seniors 55+
+          - Boston Market: 10% discount for seniors 65+
+          - Perkins Restaurants: Fifty-Five Plus menu Offers special deals (55+)
+          - Carl's Jr.: 10% discount on meal or drink.
+        `,
+        benefit:{one:'UP TO 25% OFF YOUR FAVORITE RESTAURANTS', two:'OFFERS ONLY FOR 55+'}, 
+        link:'http://findassistance.org'},
+
+        {title:'Never Pay For Home Repairs', 
+        image: require('../assets/home_repair.jpg'),
+        details:`Total Home Protection has a warranty plan for all senior home owners. For as low as 1 dollar, your home and your wallet are protected. With this one-of-a-kind plan, youll never have to worry about financing costly repair.
+                 Purchase Your Warranty Today and never have to pay for costly repairs on appliances.`,
+        benefit:{one:'PROTECTION FOR YOUR HOME', two:'FIRST MONTH FREE + 50% off'},
+        link:'https://totalhomeprotectionquote.com/landing/thp-em-396/?utm_term=161393&xxc1xx=161393'},
+
+        {title:'Get a Reverse Mortgage', 
+        image: require('../assets/reverse_mortgage.jpg'),
+        details:`Do you own a home with equity and would like some cash to help cover a couple of your daily expenses? Advisors American Group will help you convert your home equity into tax-free cash. Get your Reverse Mortgage Info Kit and fill it to learn more.`,
+        benefit:{one:'USE HOME EQUITY TO PAY FOR BILLS', two:'GET A REVERSE MORTGAGE KIT'},
+        link:'https://offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
+
+        {title:'Get a Reverse Mortgage', 
+        image: require('../assets/reverse_mortgage.jpg'),
+        details:`Do you own a home with equity and would like some cash to help cover a couple of your daily expenses? Advisors American Group will help you convert your home equity into tax-free cash. Get your Reverse Mortgage Info Kit and fill it to learn more.`,
+        benefit:{one:'USE HOME EQUITY TO PAY FOR BILLS', two:'GET A REVERSE MORTGAGE KIT'},
+        link:'https://offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
+
+        {title:'Big Discount On A Walk In Tub', 
+        image: require('../assets/walk_in_tub.jpg'),
+        details:`These tubs were designed with seniors in mind. If you have any mobility issues you need to learn more about walk in tubs. Click to find out more information and discover the huge discounts being offered by walk in tub manufacturers.`,
+        benefit:{one:'A TUB THAT PROMOTES EASE OF USE', two:'SAVE $$ WITH SPECIAL DISCOUNTS'},
+        link:'http://walk-intuboutlet.com/809/?aid2=5290&utm_campaign=5290&oid2=809&s1=161393'},
+
+        {title:'Save On Customized Quality Hearing Aids', 
+        image: require('../assets/hearing_aid.jpg'),
+        details:`Audicus is here to offer you a solution for your hearing loss. They source their products directly from the manufacturers, which is why the can comfortably offer the best prices in the market. If youre looking for customized, top-of-the-line and affordable hearing aids, then look no further.`,
+        benefit:{one:'BEST PRICES ON THE MARKET', two:'TOP OF THE LINE HEARING AIDS'},
+        link:'http://findassistance.org/savingsparade/seniors/rd.php?id=13'},
+
+        {title:'Discounted Early Screening for Stroke & Heart Disease', 
+        image: require('../assets/health_screening.jpg'),
+        details:`Statistics from the American Stroke Association reveal that 80% of the premature heart attacks and strokes can be prevented if identified early. Life Line Screening is committed to helping restore your peace of mind by detecting the conditions early before they can escalate. That will save you possible high costs of treatment in the future and the inevitable negative impact on your life. Right now you can get a full screening for more than 50% the regular price!`,
+        benefit:{one:'50% OFF THE REGULAR PRICE', two:'TAKING THE FIRST STEP IN STROKE PREVENTION'},
+        link:''},
+
+        {title:'Travel Discounts for Seniors', 
+        image: require('../assets/travel.jpg'),
+        details:`Many travel companies from hotels to cruises offer senior discounts. They can vary and change so just ask for what their current offer is. Here are some good ones:
+          Alamo: Up to 25% off for AARP members.
+          Clarion: 20%-30% off (60+)
+          Amtrak: 15% off (62+)
+          Hyatt Hotels: 25%-50% off (62+)
+          Ripley's Believe it or Not: $2 off one-day ticket (55+)
+          Myrtle Beach Resort: 10% off (55+)
+          Econo Lodge: 20%-30% off (60+)
+          Best Western: 10% off (55+)
+          SeaWorld Orlando: $3 off one-day tickets (50+)
+          Carnival Cruise: Exclusive savings for seniors 55+ (call before booking)
+          American Airlines: Various discounts for 65 and up (call before booking)`,
+        benefit:{one:'BIG SENIOR ONLY DISCOUNTS', two:'CRUISE AND HOTELS UP TO 50% OFF'},
+        link:'google.com'},
       ],
     }
   },
@@ -351,6 +473,12 @@ export default {
       this.offerCount++;
     },
   },
+  // watch: {
+  //   step: function () {
+  //     if(this.step != 'offers' || this.step != 'welcome')
+  //     this.step++;
+  //   }
+  // },
   filters: {
   capitalize: function (value) {
     if (!value) return ''
@@ -368,7 +496,7 @@ export default {
     font-size:1.7em;
     width:100%;
     margin-top:15px;
-    max-width: 340px;
+    max-width: 370px;
     text-align:center;
     opacity:1;
   }
@@ -457,12 +585,13 @@ export default {
       padding:0.8em;
       margin:1em 0;
       font-size:1.3em;
-      background-color:rgba(120, 135, 208, 0.2);
+      border:3px dashed red;
       font-weight:600;
     }
-    ul{
+  }
+  ul{
       text-align:left;
-    }
+      list-style-type: none !important;
   }
   .welcome-ad{
       height: 300px;
@@ -491,6 +620,10 @@ export default {
     .offer_details{
       background-color:#F7F7F7;
       padding:1.5em 2em;
+      min-height:400px;
+      .benefit{
+        margin:0.8em 0;
+      }
       h2{
         font-size:1.3em;
         font-weight:600;
@@ -500,10 +633,12 @@ export default {
         color:#1BDD61;
         vertical-align: middle;
         font-weight:900;
+        margin-right: 5px;
       }
       span{
         color:#60666E;
         margin-left:10px;
+        font-weight: 600;
       }
     }
     p{
