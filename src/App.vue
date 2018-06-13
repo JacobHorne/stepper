@@ -23,6 +23,7 @@ export default {
 <style lang="scss">
 body{
   margin:0;
+  background-color:#fdfdfd;
 }
 h1{
   font-size:1em;

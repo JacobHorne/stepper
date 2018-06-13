@@ -39,18 +39,21 @@
                 <span class="icon is-large">
                 <i class="far fa-handshake"></i>
                 </span>
+                <h5>Assistance</h5>
                 <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
               </div>
               <div class="column block">
                  <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
                 <i class="far fa-edit"></i>
                 </span>
+                <h5>Enrollment</h5>
                 <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
               </div>
               <div class="column block">
                  <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
                 <i class="far fa-check-square"></i>
                 </span>
+                <h5>Information</h5>
                 <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
               </div>
             </div>
@@ -82,6 +85,9 @@
                   <i class="fas fa-arrow-right"></i>
                 </span>
               </button>
+              <div>
+                <a class="back" @click="step--">Go Back</a>
+              </div>
             </div>
           </div>
 
@@ -136,19 +142,20 @@
                   <i class="fas fa-arrow-right"></i>
                 </span>
               </button>
+              <a class="back" @click="step--">Go Back</a>
             </div>
           </div>
 
           <!--Step 4-->
           <div class="question" key="4" v-if="step === 4">
-            <h4>Eligibilty will be based on questions</h4>
+            <!-- <h4>Eligibilty will be based on questions</h4> -->
             <div class="question_heading">
               <H1>What is your marital status?</H1>
             </div>
 
               <div class="user_input" >
               <div class="control">
-                <div class="select is-medium">
+                <div class="select is-large">
                   <select v-model="userData.marital">
                     <option disabled value="">Click To Choose:</option>
                     <option>Single</option>
@@ -166,18 +173,19 @@
                   <i class="fas fa-arrow-right"></i>
                 </span>
               </button>
+              <a class="back" @click="step--">Go Back</a>
             </div>
           </div>
 
           <!--Step 5-->
           <div class="question" key="5" v-if="step === 5">
-            <h4>Eligibilty will be based on questions</h4>
+            <!-- <h4>Eligibilty will be based on questions</h4> -->
             <div class="question_heading">
               <H1>What is your educational level?</H1>
             </div>
             <div class="user_input" >
              <div class="control">
-                <div class="select is-medium">
+                <div class="select is-large">
                   <select v-model="userData.education">
                     <option disabled value="">Click To Choose:</option>
                     <option>Did Not Graduate High School</option>
@@ -196,6 +204,7 @@
                   <i class="fas fa-arrow-right"></i>
                 </span>
               </button>
+              <a class="back" @click="step--">Go Back</a>
             </div>
           </div>
 
@@ -209,7 +218,7 @@
               <div class="field">
                   <label class="label">First Name:</label>
                   <div class="control has-icons-left">
-                    <input class="input is-medium" type="text" placeholder="First Name" v-model="userData.first">
+                    <input class="input is-large" type="text" placeholder="First Name" v-model="userData.first">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -218,7 +227,7 @@
               <div class="field">
                   <label class="label">Last Name:</label>
                   <div class="control has-icons-left">
-                    <input class="input is-medium" type="text" placeholder="Last Name" v-model="userData.last">
+                    <input class="input is-large" type="text" placeholder="Last Name" v-model="userData.last">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>                    
@@ -228,7 +237,7 @@
                 <div class="field">
                   <label class="label">Email</label>
                   <div class="control has-icons-left has-icons-right">
-                    <input class="input is-medium" type="email" placeholder="john@doe.com" v-model="userData.email">
+                    <input class="input is-large" type="email" placeholder="john@doe.com" v-model="userData.email">
                     <span class="icon is-small is-left">
                       <i class="fas fa-envelope"></i>
                     </span>
@@ -246,6 +255,7 @@
                   <i class="fas fa-arrow-right"></i>
                 </span>
               </button>
+              <a class="back" @click="step--">Go Back</a>
             </div>
           </div>
 
@@ -258,17 +268,20 @@
               <div>
                 <ul class="fa-ul">
                   <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right fa-lg"></i></span>Start Navigating Your Top Sponsored Programs Below.</li>
-                  <li><span class="fa-li"><i class="far fa-check fa-lg"></i></span>Click <span style="font-weight:600;">"Show Me Programs"</span> to Learn More About The Next Program.</li>
+                  <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right fa-lg"></i></span>Click <span style="font-weight:600;">"Show Me Programs"</span> to Learn More About The Next Program.</li>
                 </ul>
               </div>
 
+  
+
               <div class="button-group">
-                <button class="button is-large blue" @click="stepper('offers')">
-                  <span>Show Me Programs</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-arrow-right"></i>
-                  </span>
-                </button>
+               <button class="button is-large next" @click="stepper('offers')">
+                <span>Next</span>
+                <span class="icon is-small">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </button> 
+              <a class="back" @click="step--">Go Back</a>
               </div>
 
               <!-- <div class="welcome-ad"></div> -->
@@ -583,10 +596,10 @@ export default {
     display:none;
   }
   .front_page_block{
-    margin:4em auto;
+    margin:8em auto;
     .block{
       background:white;
-      // border:1px solid #eee;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
       margin:15px;
       text-align:center;
       > span{
@@ -595,22 +608,40 @@ export default {
       > p{
         text-align:center;
       }
+      h5{
+        font-size:1.3em;
+        margin-bottom:10px;
+        font-weight: 600;
+      }
     }
   }
   .button{
     font-size:1.7em;
     width:100%;
-    margin-top:15px;
+    margin-top:10px;
     max-width: 370px;
     text-align:center;
     opacity:1;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
   }
   .button-group{
     text-align:center;
+    margin:4em 0;
+    .back{
+      color:slategrey; 
+      font-weight:600; 
+      margin:24px; 
+      display:block;
+    }
   }
   .red{
     background:red;
     color:white;
+    display: block;
+    margin:0.5em auto 0 auto;
+    >span{
+      vertical-align: top;
+    }
     &:hover{
       background:red;
     }
@@ -619,7 +650,8 @@ export default {
     background:#084CAD;
     color:white;
     display: block;
-    margin: 0 auto;
+    margin: 0.5em auto 0 auto;
+    vertical-align: top;
     &:hover{
       background:#084CAD;
     }
@@ -665,17 +697,20 @@ export default {
     text-align:left;
   }
   select,input{
-    border: 1px solid darkgray;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
     min-width:360px;
     color:#3d3d3d;
+    border:none;
   }
   .offer-buttons{
     position:fixed;
     bottom:0;
     width:100%;
+    text-align: center;
+    max-width:800px;
     .button{
-      float:left;
-      width:50%;
+      display: inline-block;
+      width:49%;
     }
   }
   .welcome{
@@ -733,7 +768,7 @@ export default {
   }
   .offer{
     .ad{
-      height: 300px;
+      height: 180px;
       width: 100%;
       background-repeat: no-repeat;
       margin: 0em 0;
@@ -751,6 +786,7 @@ export default {
       padding:1.5em 2em;
       min-height:400px;
       margin-bottom: 6em;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
       .benefit{
         margin:0.8em 0;
       }
@@ -782,6 +818,7 @@ export default {
     padding: 0.8em 0.5em;
     text-align:left;
     position: relative;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
     h4{
       font-weight: 600;
       color:#363636;
@@ -791,7 +828,7 @@ export default {
       font-size: 0.95em;
     }
     img{
-      max-width:130px;
+      max-width:160px;
     }
   }
   .header-fade{
@@ -849,7 +886,7 @@ export default {
     }
   }
   .header-fade{
-    height:8px;
+    height:5px;
   }
   .header-fade{
     height:8px;
@@ -860,11 +897,15 @@ export default {
   .question_heading{
     margin:2em 0;
   }
+  .offer{
+    .ad{
+      height:300px;
+      width:100%;
+    }
+  }
 }
 
 @media only screen and (min-width: 800px) {
-  button {
-    }
   .tab_container{
     display:block;
   }
