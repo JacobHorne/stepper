@@ -12,8 +12,9 @@
       </div><!--Vue Div-->
       <div class="questions_wrapper">
         <transition-group name="fade">
+
           <!--Step 1-->
-          <div class="question" key="1" v-show="step === 1">
+          <div class="question" key="1" v-if="step === 1">
             <h4>Take This 30 Second Survey to Check Your Eligibility For Assistance.</h4>
             <div class="question_heading">
               <h1>Are You Experiencing Financial Hardship?</h1>
@@ -33,29 +34,37 @@
               </a>
             </div>
 
-            <div class="group">
-              <div style="width:30%;float:left;margin-right:3%;">
-                  <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation.</p>
+            <div class="columns front_page_block">
+              <div class="column block">
+                <span class="icon is-large">
+                <i class="far fa-handshake"></i>
+                </span>
+                <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
               </div>
-              <div style="width:30%;float:left;margin-right:3%;">
-                <p>100% free enrollment for qualifying citizens of the United States who are experiencing financial hardship, and acess to community based support, assistance, news, and discussions.</p>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-edit"></i>
+                </span>
+                <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
               </div>
-              <div style="width:30%;float:left;margin-right:3%;">
-                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts.</p>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-check-square"></i>
+                </span>
+                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
               </div>
             </div>
-
           </div>
 
           <!--Step 2-->
-          <div class="question" key="2" v-show="step === 2">
+          <div class="question" key="2" v-if="step === 2">
             <h4>Eligibilty will be based on questions</h4>
             <div class="question_heading">
               <H1>What is your housing status?</H1>
             </div>
             <div class="user_input" >
               <div class="control">
-                <div class="select is-medium">
+                <div class="select is-large">
                   <select v-model="userData.housing">
                     <option disabled value="">Click To Choose:</option>
                     <option>Renting</option>
@@ -77,22 +86,22 @@
           </div>
 
           <!--Step 3-->
-          <div class="question" key="3" v-show="step === 3">
+          <div class="question" key="3" v-if="step === 3">
             <div class="question_heading">
               <H1>Employment Information</H1>
             </div>
-             <div class="user_input">
+            <div class="user_input">
               <div class="field">
                   <label class="label">Age</label>
                   <div class="control">
-                    <input class="input is-medium" type="text" placeholder="Enter Age" v-model.number="userData.age">
+                    <input class="input is-large" type="text" placeholder="Enter Age" v-model.number="userData.age">
                   </div>
               </div>
             </div>
-            <div class="user_input" >
+            <div class="user_input">
               <label class="label">Employment</label>
               <div class="control">
-                <div class="select is-medium">
+                <div class="select is-large">
                   <select v-model="userData.employment">
                     <option disabled value="">Click to Choose</option>
                     <option>Employed For Wages</option>
@@ -106,10 +115,11 @@
                 </div>
               </div>
             </div>
-             <div class="user_input" >
+
+            <div class="user_input">
+              <label class="label">Gender</label>
               <div class="control">
-                <label class="label">Gender:</label>
-                <div class="select is-medium">
+                <div class="select is-large">
                   <select v-model="userData.gender">
                     <option disabled value="">Click to Choose</option>
                     <option>Male</option>
@@ -118,6 +128,7 @@
                 </div>
               </div>
             </div>
+
             <div class="button-group">
                <button class="button is-large next" @click="stepper(4)" :disabled="userData.employment === ''  || userData.age === '' || userData.gender === ''">
                 <span>Next</span>
@@ -129,7 +140,7 @@
           </div>
 
           <!--Step 4-->
-          <div class="question" key="4" v-show="step === 4">
+          <div class="question" key="4" v-if="step === 4">
             <h4>Eligibilty will be based on questions</h4>
             <div class="question_heading">
               <H1>What is your marital status?</H1>
@@ -159,7 +170,7 @@
           </div>
 
           <!--Step 5-->
-          <div class="question" key="5" v-show="step === 5">
+          <div class="question" key="5" v-if="step === 5">
             <h4>Eligibilty will be based on questions</h4>
             <div class="question_heading">
               <H1>What is your educational level?</H1>
@@ -189,7 +200,7 @@
           </div>
 
            <!-- Step 6-->
-          <div class="question" key="6" v-show="step === 6">
+          <div class="question" key="6" v-if="step === 6">
             <h4>Eligibilty will be based on questions</h4>
             <div class="question_heading">
               <H1>Last Step</H1>
@@ -238,7 +249,7 @@
             </div>
           </div>
 
-          <div class="question" key="7" v-show="step === 'welcome'">
+          <div class="question" key="7" v-if="step === 'welcome'">
               <div class="question_heading welcome">
                 <h1 >Welcome, {{userData.first | capitalize}}</h1>
                 <h2 >Get Started Today! Your Programs and Benefits Are Ready.</h2>
@@ -262,7 +273,7 @@
 
               <!-- <div class="welcome-ad"></div> -->
           </div>
-          <div class="offer" key="8" v-show="step === 'offers'">
+          <div class="offer" key="8" v-if="step === 'offers'">
               
               <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad"></div>
               <div class="offer_header">
@@ -288,13 +299,82 @@
                 <button @click="nextOffer()" class="button is-large red">
                   <span>Next</span>
                   <span class="icon is-small">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-check"></i>
                   </span>
                 </button>
               </div>
           </div>
+
+          <div key="8" v-if="step === 'final'">
+            <div class="question_heading final">
+                <h1 >Member Profile</h1>
+                
+                <div class="final_box">
+                  <h3>Name: {{userData.first | capitalize}} {{userData.last | capitalize}}</h3>
+                  <h3>Id: #FA-{{userData.id}}</h3>
+                  <h3>Email: {{userData.email}}</h3>
+                  
+
+                  <!-- <span>Phone</span><div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <p class="control">
+                          <input class="input" type="email" placeholder="Recipient email">
+                        </p>
+                      </div>
+                    </div>
+                  </div> -->
+              </div>
+
+              <!-- <div style="margin:2em 0;">
+                <h2>Be on the Lookout for More Offers</h2>
+              </div> -->
+            </div>
+          </div>
          </transition-group>
      </div>
+
+     <div class="tab_container" v-if="step === 'final'">
+              <div class="tabs is-centered is-boxed is-medium">
+                <ul>
+                  <li @click="tabId = 1" :class="{ 'is-active' : tabId == 1 }">
+                    <a>
+                      <span class="icon is-small"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
+                      <span>Popular</span>
+                    </a>
+                  </li>
+                  <li  @click="tabId = 2" :class="{ 'is-active' : tabId == 2 }">
+                    <a>
+                      <span class="icon is-small"><i class="fas fa-home" aria-hidden="true"></i></span>
+                      <span>Home</span>
+                    </a>
+                  </li>
+                  <li  @click="tabId = 3" :class="{ 'is-active' : tabId == 3 }">
+                    <a>
+                      <span class="icon is-small"><i class="fas fa-car" aria-hidden="true"></i></span>
+                      <span>Auto</span>
+                    </a>
+                  </li>
+                  <li  @click="tabId = 4" :class="{ 'is-active' : tabId == 4 }">
+                    <a>
+                      <span class="icon is-small"><i class="fas fa-suitcase" aria-hidden="true"></i></span>
+                      <span>Travel</span>
+                    </a>
+                  </li>
+                  <li  @click="tabId = 5" :class="{ 'is-active' : tabId == 5 }">
+                    <a>
+                      <span class="icon is-small"><i class="fas fa-money-bill-alt" aria-hidden="true"></i></span>
+                      <span>Financial</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <h1 v-if="tabId === 1">This is where the offers Go</h1>
+                <h1 v-if="tabId === 2">This i/////d/d/d/d/d/d/d/d/d</h1>
+                <h1 v-if="tabId === 3">TOfferadlkansdlkajalkjsdlkajsdlkajsdlkjasdlkjasldjaslkjdlaksjdlkajsdlkjaslkajsd</h1>
+            </div>
      
   </div> <!--Vue Div-->
 </template>
@@ -305,19 +385,21 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 'welcome',
+      step: 'final',
       offerCount:0,
       steps:[],
+      tabId:1,
       userData: {
         housing:'',
         employment:'',
         marital:'',
         education:'',
         gender:'',
-        email:'',
+        email:'jacobhorne@gmail.com',
+        phone:'',
         age:'',
-        first:'',
-        last:'',
+        first:'jake',
+        last:'horne',
         id: Math.floor(1000000 + Math.random() * 900000)
       },
       offers:[
@@ -400,8 +482,8 @@ export default {
           - Chilis Grill and Bar: 10% discount for seniors 55+
           - Boston Market: 10% discount for seniors 65+
           - Perkins Restaurants: Fifty-Five Plus menu Offers special deals (55+)
-          - Carl's Jr.: 10% discount on meal or drink.
-        `,
+          - Carl's Jr.: 10% discount on meal or drink.`,
+
         benefit:{one:'UP TO 25% OFF YOUR FAVORITE RESTAURANTS', two:'OFFERS ONLY FOR 55+'}, 
         link:'http://findassistance.org'},
 
@@ -445,6 +527,7 @@ export default {
         {title:'Travel Discounts for Seniors', 
         image: require('../assets/travel.jpg'),
         details:`Many travel companies from hotels to cruises offer senior discounts. They can vary and change so just ask for what their current offer is. Here are some good ones:
+          
           Alamo: Up to 25% off for AARP members.
           Clarion: 20%-30% off (60+)
           Amtrak: 15% off (62+)
@@ -456,6 +539,7 @@ export default {
           SeaWorld Orlando: $3 off one-day tickets (50+)
           Carnival Cruise: Exclusive savings for seniors 55+ (call before booking)
           American Airlines: Various discounts for 65 and up (call before booking)`,
+
         benefit:{one:'BIG SENIOR ONLY DISCOUNTS', two:'CRUISE AND HOTELS UP TO 50% OFF'},
         link:'google.com'},
       ],
@@ -472,6 +556,9 @@ export default {
     nextOffer(){
       this.offerCount++;
     },
+    tab(id){
+      this.tabId = id;
+    }
   },
   // watch: {
   //   step: function () {
@@ -491,7 +578,25 @@ export default {
 
 <!--CSS Style, Using SCSS -->
 <style scoped lang="scss">
-  
+
+  .tab_container{
+    display:none;
+  }
+  .front_page_block{
+    margin:4em auto;
+    .block{
+      background:white;
+      // border:1px solid #eee;
+      margin:15px;
+      text-align:center;
+      > span{
+        font-size:3.5em;text-align:center;margin:20px 0; color:#084CAD;opacity:0.85;
+      }
+      > p{
+        text-align:center;
+      }
+    }
+  }
   .button{
     font-size:1.7em;
     width:100%;
@@ -513,6 +618,8 @@ export default {
   .blue{
     background:#084CAD;
     color:white;
+    display: block;
+    margin: 0 auto;
     &:hover{
       background:#084CAD;
     }
@@ -530,12 +637,12 @@ export default {
     width:96%;
   }
   .question_heading{
-    margin:2em 0 3em 0;
+    margin: 1em 0 2em 0;
     text-align:center;
   }
   .user_input{
     margin:1.8em auto;
-    width:305px;
+    width:360px;
   }
   h1{
     font-size:2.3em !important;
@@ -558,9 +665,9 @@ export default {
     text-align:left;
   }
   select,input{
-    border: 2px solid #363636;
-    min-width:305px;
-    color:lightslategray;
+    border: 1px solid darkgray;
+    min-width:360px;
+    color:#3d3d3d;
   }
   .offer-buttons{
     position:fixed;
@@ -585,8 +692,30 @@ export default {
       padding:0.8em;
       margin:1em 0;
       font-size:1.3em;
-      border:3px dashed red;
+      border:2px dashed red;
       font-weight:600;
+    }
+  }
+  .final{
+    h1{
+     margin:10px 0;
+     text-align:center;
+    }
+    h2{
+      text-align: left;
+      font-size:1.3em;
+    }
+    h3{
+      border-radius: 4px;
+      font-size:1.1em;
+      font-weight:600;
+      text-align:left;
+    }
+    .final_box{
+      padding: 2em;
+      border: 2px dashed red;
+      max-width: 600px;
+      margin: 0 auto;
     }
   }
   ul{
@@ -621,6 +750,7 @@ export default {
       background-color:#F7F7F7;
       padding:1.5em 2em;
       min-height:400px;
+      margin-bottom: 6em;
       .benefit{
         margin:0.8em 0;
       }
@@ -649,7 +779,7 @@ export default {
   //Header Styles
   .header{
     background-color:white;
-    padding:1.3em 1em;
+    padding: 0.8em 0.5em;
     text-align:left;
     position: relative;
     h4{
@@ -657,25 +787,30 @@ export default {
       color:#363636;
       position:absolute;
       right:0;
-      top:5px;
+      top: -3px;
+      font-size: 0.95em;
     }
     img{
-      max-width:200px;
+      max-width:130px;
     }
   }
   .header-fade{
     background-color:red;
     color:#2d2d2d;
-    height:8px;
+    height:3px;
     opacity:90%;
   }
   .header-faded{
     background-color:#084CAD;
-    height:5px;
+    height:3px;
     opacity:80%;
   }
   h2{
     margin:0;
+  }
+  .tabs li.is-active a{
+    color:white;
+    background-color:#084CAD;
   }
   
   .fade-leave-active,
@@ -703,13 +838,35 @@ export default {
     color: lightslategrey;
   }
 @media only screen and (min-width: 500px) {
-  button {
-        
+  .header{
+    padding:1.3em 1em;
+    img{
+      max-width: 200px;
+    }
+    h4{
+      top: 4px;
+      font-size: 1.2em;
+    }
+  }
+  .header-fade{
+    height:8px;
+  }
+  .header-fade{
+    height:8px;
+  }
+  .questions_wrapper{
+      max-width: 800px;
+  }
+  .question_heading{
+    margin:2em 0;
   }
 }
 
 @media only screen and (min-width: 800px) {
   button {
     }
+  .tab_container{
+    display:block;
+  }
 }
 </style>
