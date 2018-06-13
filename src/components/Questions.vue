@@ -1,15 +1,13 @@
 <template>
   <div>
-      <div>
-        <div class="header">
+      <div class="header">
            <h4 v-if="step <= 6">Step: {{step}} of 7</h4>
            <h4 v-if="step === 'welcome' || step === 'offers'">#FA-{{userData.id}}</h4>
            <img src="../assets/logo.png" @click="step = 1">
         </div>
         <div v-if="step != 'offers'" class="header-fade"></div>
         <div v-if="step != 'offers'" class="header-faded"></div>
-      
-      </div><!--Vue Div-->
+
       <div class="questions_wrapper">
         <transition-group name="fade">
 
@@ -271,9 +269,6 @@
                   <li><span class="fa-li"><i class="far fa-arrow-alt-circle-right fa-lg"></i></span>Click <span style="font-weight:600;">"Show Me Programs"</span> to Learn More About The Next Program.</li>
                 </ul>
               </div>
-
-  
-
               <div class="button-group">
                <button class="button is-large next" @click="stepper('offers')">
                 <span>Next</span>
@@ -283,12 +278,9 @@
               </button> 
               <a class="back" @click="step--">Go Back</a>
               </div>
-
-              <!-- <div class="welcome-ad"></div> -->
           </div>
           <div class="offer" key="8" v-if="step === 'offers'">
-              
-              <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad"></div>
+              <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad" id="id"></div>
               <div class="offer_header">
                 <h1>{{offers[offerCount].title}}</h1>
               </div> 
@@ -306,13 +298,13 @@
                 <button @click="seeOffer();" class="button is-large blue">
                   <span>View</span>
                   <span class="icon is-small">
-                    <i class="fas fa-check"></i>
+                    <i class="fas fa-window-restore"></i>
                   </span>
                 </button>
                 <button @click="nextOffer()" class="button is-large red">
                   <span>Next</span>
                   <span class="icon is-small">
-                    <i class="fas fa-check"></i>
+                    <i class="fas fa-forward"></i>
                   </span>
                 </button>
               </div>
@@ -398,7 +390,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 'final',
+      step: 1,
       offerCount:0,
       steps:[],
       tabId:1,
@@ -420,7 +412,7 @@ export default {
          image: require('../assets/warranty.jpg'), 
          details:`Total Home Protection has a warranty plan for all home owners. For as low as 1 dollar, your home and your wallet are protected. With this one-of-a-kind plan, you’ll never have to worry about financing costly repair. In the plan, you get the FIRST MONTH FREE + 50% off. Purchase Your Warranty Today and never have to pay for costly repairs on appliances.`,
          benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'},
-         link:'https://totalhomeprotectionquote.com/landing/thp-budget-madrivodisplay50/?imt=1&utm_campaign=Warranty&utm_source=madrivodisplay50&utm_medium=PPC&utm_content=Budget&utm_term=160001.adv2876'},
+         link:'totalhomeprotectionquote.com/landing/thp-budget-madrivodisplay50/?imt=1&utm_campaign=Warranty&utm_source=madrivodisplay50&utm_medium=PPC&utm_content=Budget&utm_term=160001.adv2876'},
 
         {title:'Use HARP – Let The Government Pay For Your Mortgage', 
          image: require('../assets/house-mortgage.jpg'), 
@@ -432,43 +424,43 @@ export default {
         image: require('../assets/debt.jpg'),
         details:'Talk to a debt counselor and allow them to negotiate better terms you’re your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They’re BBB+ accredited and an AFCC accredited member for ethical standards.',
         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
-        link:'https://www.acreliefnetwork.com/landing-pages/11/?utm_source=16&utm_campaign=726&dko=8k2019&affiliate_id=16&offer_id=13&subid1=160001&subid2=451304308&subid3=adv2055&subid4=&subid5=&click_id=1423941&request_id=555378&campaign_id=726'},
+        link:'www.acreliefnetwork.com/landing-pages/11/?utm_source=16&utm_campaign=726&dko=8k2019&affiliate_id=16&offer_id=13&subid1=160001&subid2=451304308&subid3=adv2055&subid4=&subid5=&click_id=1423941&request_id=555378&campaign_id=726'},
 
         {title:'Discount on Car Insurance', 
         image: require('../assets/car-insurance.jpg'),
         details:'View the quotes from hundreds of top insurance companies, save time and save cash on the best policy by as much as 50% of your monthly insurance premiums. The Zebra will help you find better and affordable deals on car insurance costing as little as $27 a month. With the deals from The Zebra, more than 5 million people have saved an average of 368 dollars per year on car insurance premiums.',
         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
-        link:'https://www.thezebra.com/compare/start/vc7901/?utm_source=rbus41&utm_medium=affiliate&utm_campaign=native&channelid=rbus41&subid=160001&subid2=451020278&subid3=adv3297&subid4=&subid5=&subid6=0&adid=1020d9555e07868045689dc5ab6c93'},
+        link:'www.thezebra.com/compare/start/vc7901/?utm_source=rbus41&utm_medium=affiliate&utm_campaign=native&channelid=rbus41&subid=160001&subid2=451020278&subid3=adv3297&subid4=&subid5=&subid6=0&adid=1020d9555e07868045689dc5ab6c93'},
 
         {title:'Save on Life Insurance', 
         image: require('../assets/life-insurance.jpg'),
         details:'The Life Insurance.net team has gone out of the way to source the most affordable yet reliable insurance plans for you. The plans offer coverage from a little as $5K-$1M. And the deal on Life Insurance Plans gets even sweeter; no medical check-ups guaranteed acceptance into the plans, and simply the best-priced plans with a 30-Money back guarantee.',
         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
-        link:'https://app.lifeinsurance.net/landing/life-insurance-tcpa1?utm_source=madrivo&utm_medium=paid&utm_campaign=160001&utm_content=451024691&utm_term=%7Butm_term%7D&offer_id=75&transaction_id=102eff5776d63265cd4872d63acaf7&aff_sub=160001&aff_sub5=&aff_sub3=adv3289&aff_sub2=451024691&aff_sub4='},
+        link:'app.lifeinsurance.net/landing/life-insurance-tcpa1?utm_source=madrivo&utm_medium=paid&utm_campaign=160001&utm_content=451024691&utm_term=%7Butm_term%7D&offer_id=75&transaction_id=102eff5776d63265cd4872d63acaf7&aff_sub=160001&aff_sub5=&aff_sub3=adv3289&aff_sub2=451024691&aff_sub4='},
         
         {title:'Grab A Complete Security System For FREE', 
         image: require('../assets/adt.jpg'),
         details:'ADT is committed to helping you protect our home and is offering a complete security for free. Not only will you will be protecting you home and valuables but most homeowners insurance policies will give you an additional discount once it is installed!',
         benefit:{one:'FREE HOME SECURITY SYSTEM', two: `ADDED HOME OWNER'S DISCOUNT`}, 
-        link:'http://www.installed-security.com/syh6/adt-home-security-systems.php?utm_source=58&utm_promo=197&utm_campaign=161393463003329SP&offerid=33'},
+        link:'installed-security.com/syh6/adt-home-security-systems.php?utm_source=58&utm_promo=197&utm_campaign=161393463003329SP&offerid=33'},
         
         {title:'Save on Medical Costs', 
         image: require('../assets/medicare.jpg'),
         details:'For Seniors, healthcare is essential. The costs of prescriptions continue to rise and almost all seniors take some form of medicine. You may be eligible for extra benefits from your Medicare insurance plan. Check to see if you can cut cost on dental, vision, hearing, even arthritis treatments amongst others.',
         benefit:{one:'LOWER SENIOR MEDICAL COSTS', two:'SAVE ON DENTAL, VISION, AND HEARING'}, 
-        link:'https://www.medicare-providers.net/plans/index.php?Referrer=MAD2&Subreferrer=161393&utm_source=463004505&utm_medium=email&utm_content=medicare&utm_campaign=27729'},
+        link:'medicare-providers.net/plans/index.php?Referrer=MAD2&Subreferrer=161393&utm_source=463004505&utm_medium=email&utm_content=medicare&utm_campaign=27729'},
         
         {title:'Stay Updated On Discounts And Offers', 
         image: require('../assets/discounts.jpg'),
         details:'Join Find Assistance for FREE. Take a 30 second survey and qualify to join. FA will keep you updated on programs and discounts that will save you money.',
         benefit:{one:'FREE AND FAST SURVEY', two:'PROGRAMS AND DISCOUNTS DELIVERED FOR FREE'}, 
-        link:'http://findassistance.org'},
+        link:'findassistance.org'},
 
         {title:'Save Cash While Settling Your Debt', 
         image: require('../assets/debt-2.jpg'),
         details:`Talk to a debt counselor and allow them to negotiate better terms youre your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They're BBB+ accredited and an AFCC accredited member for ethical standards.`,
         benefit:{one:'CONTACT A DEBT COUNSELOR', two:'GET OUT OF DEBT AND AVOID BANKRUPTCY'},
-        link:'https://apply.nationaldebtrelief.com/?src=leadi2&aff_sub=19&aff_sub2=1114018&aff_sub3=161393'},
+        link:'apply.nationaldebtrelief.com/?src=leadi2&aff_sub=19&aff_sub2=1114018&aff_sub3=161393'},
 
         {title:'Get Paid For Your Opinions', 
         image: require('../assets/opinions.jpg'),
@@ -478,10 +470,11 @@ export default {
 
         {title:'Dining Out Discounts', 
         image: require('../assets/dining.jpg'),
-        details:`When you dont feel like cooking here is a list of restaurants that offer senior deals. Keep in mind that some deals and discounts may vary by location and can change without notice.
-
+        details: `When you dont feel like cooking here is a list of restaurants that offer senior deals. Keep in mind that some deals and discounts may vary by location and can change without notice.
           - Arby's: 10% discount for those over 55.
+
           - Chick-fil-a: Free small drink or coffee plus a 10% discount for those 55+
+
           - Waffle House: 10% meals on Mondays for seniors 60+
           - Burger King: 10% discount for those 60 and older.
           - Steak and Shake: 10% discount on certain days for 55+
@@ -495,8 +488,7 @@ export default {
           - Chilis Grill and Bar: 10% discount for seniors 55+
           - Boston Market: 10% discount for seniors 65+
           - Perkins Restaurants: Fifty-Five Plus menu Offers special deals (55+)
-          - Carl's Jr.: 10% discount on meal or drink.`,
-
+          - Carls Jr.: 10% discount on meal or drink.`,
         benefit:{one:'UP TO 25% OFF YOUR FAVORITE RESTAURANTS', two:'OFFERS ONLY FOR 55+'}, 
         link:'http://findassistance.org'},
 
@@ -568,17 +560,16 @@ export default {
     },
     nextOffer(){
       this.offerCount++;
+      if(this.offerCount >= 19){
+        this.step = 'final';
+      }
+      window.scrollTo(0, 0);
+      
     },
     tab(id){
       this.tabId = id;
     }
   },
-  // watch: {
-  //   step: function () {
-  //     if(this.step != 'offers' || this.step != 'welcome')
-  //     this.step++;
-  //   }
-  // },
   filters: {
   capitalize: function (value) {
     if (!value) return ''
@@ -591,7 +582,11 @@ export default {
 
 <!--CSS Style, Using SCSS -->
 <style scoped lang="scss">
-
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   .tab_container{
     display:none;
   }
@@ -651,13 +646,12 @@ export default {
     color:white;
     display: block;
     margin: 0.5em auto 0 auto;
-    vertical-align: top;
     &:hover{
       background:#084CAD;
     }
   }
   .button[disabled]{
-    opacity:0.7;
+    background:darkgrey;
   }
   .next{
     background-color:#084CAD;
@@ -705,7 +699,7 @@ export default {
   .offer-buttons{
     position:fixed;
     bottom:0;
-    width:100%;
+    width:96%;
     text-align: center;
     max-width:800px;
     .button{
@@ -764,7 +758,7 @@ export default {
       margin: 1em 0;
       background-position: center;
       background-size: cover;
-      background-image: url('../assets/house-mortgage.jpg');
+      background-image: url('../assets/house-mortgage.svg');
   }
   .offer{
     .ad{
@@ -782,7 +776,7 @@ export default {
       font-weight:900;
     }
     .offer_details{
-      background-color:#F7F7F7;
+      background-color:white;
       padding:1.5em 2em;
       min-height:400px;
       margin-bottom: 6em;
@@ -802,9 +796,10 @@ export default {
         margin-right: 5px;
       }
       span{
-        color:#60666E;
+        color:#3d3d3d;
         margin-left:10px;
         font-weight: 600;
+        line-height:1.6em;
       }
     }
     p{
