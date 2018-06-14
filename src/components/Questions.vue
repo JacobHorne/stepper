@@ -279,7 +279,7 @@
               <a class="back" @click="step--">Go Back</a>
               </div>
           </div>
-          <div class="offer" key="8" v-if="step === 'offers'">
+          <div class="offer" key="8" v-if="step === 'offers'" v-cloak>
               <div :style="{ backgroundImage : 'url(' + offers[offerCount].image + ')'}" class="ad" id="id"></div>
               <div class="offer_header">
                 <h1>{{offers[offerCount].title}}</h1>
@@ -683,7 +683,7 @@ export default {
     },
     nextOffer(){
       this.offerCount++;
-      if(this.offerCount >= 18){
+      if(this.offerCount >= 17){
         this.step = 'final';
       }
       setTimeout(window.scrollTo(0, 0), 5000);
@@ -709,6 +709,7 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  [v-cloak] { display: none; }
   .tabs{
     display:none;
   }
