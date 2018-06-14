@@ -332,10 +332,7 @@
                     </div>
                   </div> -->
               </div>
-
-              <!-- <div style="margin:2em 0;">
-                <h2>Be on the Lookout for More Offers</h2>
-              </div> -->
+                <h2>Be on the Lookout for More Offers!</h2>
             </div>
           </div>
          </transition-group>
@@ -347,7 +344,7 @@
                   <li @click="tabId = 1" :class="{ 'is-active' : tabId == 1 }">
                     <a>
                       <span class="icon is-small"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
-                      <span>Popular</span>
+                      <span>Top</span>
                     </a>
                   </li>
                   <li  @click="tabId = 2" :class="{ 'is-active' : tabId == 2 }">
@@ -376,11 +373,144 @@
                   </li>
                 </ul>
               </div>
-              <h1 v-if="tabId === 1">This is where the offers Go</h1>
-                <h1 v-if="tabId === 2">This i/////d/d/d/d/d/d/d/d/d</h1>
-                <h1 v-if="tabId === 3">TOfferadlkansdlkajalkjsdlkajsdlkajsdlkjasdlkjasldjaslkjdlaksjdlkajsdlkjaslkajsd</h1>
+
+              <!--Final Page Desktop-->
+              <div class="final_desktop" style="max-width:800px;">
+                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 1'>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/dining.jpg"></a>
+                    <h5>Assistance</h5>
+                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/debt.jpg"></a>
+                    <h5>Enrollment</h5>
+                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/opinions.jpg"></a>
+                    <h5>Information</h5>
+                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+                  </div>
+                </div>
+
+                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 2'>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/debt.jpg"></a>
+                    <h5>Assistance</h5>
+                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/health_screening.jpg"></a>
+                    <h5>Enrollment</h5>
+                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/home_repair.jpg"></a>
+                    <h5>Information</h5>
+                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+                  </div>
+                </div>
+
+                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 3'>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/medicare.jpg"></a>
+                    <h5>Assistance</h5>
+                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/warranty.jpg"></a>
+                    <h5>Enrollment</h5>
+                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/home_repair.jpg"></a>
+                    <h5>Information</h5>
+                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+                  </div>
+                </div>
+
+                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 4'>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/life-insurance.jpg"></a>
+                    <h5>Assistance</h5>
+                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/newday.jpg"></a>
+                    <h5>Enrollment</h5>
+                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/home_repair.jpg"></a>
+                    <h5>Information</h5>
+                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+                  </div>
+                </div>
+
+                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 5'>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/medicare.jpg"></a>
+                    <h5>Assistance</h5>
+                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/adt.jpg"></a>
+                    <h5>Enrollment</h5>
+                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+                  </div>
+                  <div class="column block">
+                     <a href="google.com"><img src="../assets/travel.jpg"></a>
+                    <h5>Information</h5>
+                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="final_mobile">
+                <div class="final_mobile_heading">
+                  <span class="icon is-medium"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
+                  <span>Top Offers</span>
+                </div>
+                  <div class="final_mobile_ad">
+                    <h5></h5>
+                    <a href="google.com"><img src="../assets/debt.jpg"></a>
+                    <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
+                  </div>
+                  <div class="final_mobile_ad">
+                    <a href="google.com"><img src="../assets/newday.jpg"></a>
+                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
+                  </div>
+               
+                 <div class="final_mobile_heading">
+                  <span class="icon is-medium"><i class="fas fa-check" aria-hidden="true"></i></span>
+                  <span>Home Offers</span>
+                </div>
+                  <div class="final_mobile_ad">
+                    <a href="google.com"><img src="../assets/reverse_mortgage.jpg"></a>
+                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
+                  </div>
+                  <div class="final_mobile_ad">
+                    <a href="google.com"><img src="../assets/warranty.jpg"></a>
+                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
+                  </div>
+
+                   <div class="final_mobile_heading">
+                  <span class="icon is-medium"><i class="fas fa-check" aria-hidden="true"></i></span>
+                  <span>Financial Offers</span>
+                </div>
+                  <div class="final_mobile_ad">
+                    <a href="google.com"><img src="../assets/discounts.jpg"></a>
+                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
+                  </div>
+                  <div class="final_mobile_ad">
+                    <a href="google.com"><img src="../assets/adt.jpg"></a>
+                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
+                  </div>
+             </div>
+
             </div>
-     
+          </div>
   </div> <!--Vue Div-->
 </template>
 
@@ -390,7 +520,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 1,
+      step: 'final',
       offerCount:0,
       steps:[],
       tabId:1,
@@ -400,11 +530,11 @@ export default {
         marital:'',
         education:'',
         gender:'',
-        email:'jacobhorne@gmail.com',
+        email:'',
         phone:'',
         age:'',
-        first:'jake',
-        last:'horne',
+        first:'',
+        last:'',
         id: Math.floor(1000000 + Math.random() * 900000)
       },
       offers:[
@@ -424,13 +554,13 @@ export default {
         image: require('../assets/debt.jpg'),
         details:'Talk to a debt counselor and allow them to negotiate better terms you’re your creditors. Accredited Debt can help you get out of debt without bankruptcy while saving cash. They’re BBB+ accredited and an AFCC accredited member for ethical standards.',
         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
-        link:'www.acreliefnetwork.com/landing-pages/11/?utm_source=16&utm_campaign=726&dko=8k2019&affiliate_id=16&offer_id=13&subid1=160001&subid2=451304308&subid3=adv2055&subid4=&subid5=&click_id=1423941&request_id=555378&campaign_id=726'},
+        link:'acreliefnetwork.com/landing-pages/11/?utm_source=16&utm_campaign=726&dko=8k2019&affiliate_id=16&offer_id=13&subid1=160001&subid2=451304308&subid3=adv2055&subid4=&subid5=&click_id=1423941&request_id=555378&campaign_id=726'},
 
         {title:'Discount on Car Insurance', 
         image: require('../assets/car-insurance.jpg'),
         details:'View the quotes from hundreds of top insurance companies, save time and save cash on the best policy by as much as 50% of your monthly insurance premiums. The Zebra will help you find better and affordable deals on car insurance costing as little as $27 a month. With the deals from The Zebra, more than 5 million people have saved an average of 368 dollars per year on car insurance premiums.',
         benefit:{one:'FIRST MONTH FREE + 50% OFF', two:'All Owners Are Eligible'}, 
-        link:'www.thezebra.com/compare/start/vc7901/?utm_source=rbus41&utm_medium=affiliate&utm_campaign=native&channelid=rbus41&subid=160001&subid2=451020278&subid3=adv3297&subid4=&subid5=&subid6=0&adid=1020d9555e07868045689dc5ab6c93'},
+        link:'thezebra.com/compare/start/vc7901/?utm_source=rbus41&utm_medium=affiliate&utm_campaign=native&channelid=rbus41&subid=160001&subid2=451020278&subid3=adv3297&subid4=&subid5=&subid6=0&adid=1020d9555e07868045689dc5ab6c93'},
 
         {title:'Save on Life Insurance', 
         image: require('../assets/life-insurance.jpg'),
@@ -466,7 +596,7 @@ export default {
         image: require('../assets/opinions.jpg'),
         details:'Put your free time to work and get paid for sharing your opinion regarding products and services. You fill out the registration and Survey Junkie will match you with surveys that you complete to earn rewards and virtual points that can be redeemed through Paypal or e-Giftcards. Its a fun way to earn in your extra time.',
         benefit:{one:'TURN YOUR TIME INTO $$$', two:'GET PAID FOR YOUR OPINION'}, 
-        link:'https://www.surveyjunkie.com/lp36?a=140&s1=161393&rid=54969809'},
+        link:'surveyjunkie.com/lp36?a=140&s1=161393&rid=54969809'},
 
         {title:'Dining Out Discounts', 
         image: require('../assets/dining.jpg'),
@@ -497,31 +627,31 @@ export default {
         details:`Total Home Protection has a warranty plan for all senior home owners. For as low as 1 dollar, your home and your wallet are protected. With this one-of-a-kind plan, youll never have to worry about financing costly repair.
                  Purchase Your Warranty Today and never have to pay for costly repairs on appliances.`,
         benefit:{one:'PROTECTION FOR YOUR HOME', two:'FIRST MONTH FREE + 50% off'},
-        link:'https://totalhomeprotectionquote.com/landing/thp-em-396/?utm_term=161393&xxc1xx=161393'},
+        link:'totalhomeprotectionquote.com/landing/thp-em-396/?utm_term=161393&xxc1xx=161393'},
 
         {title:'Get a Reverse Mortgage', 
         image: require('../assets/reverse_mortgage.jpg'),
         details:`Do you own a home with equity and would like some cash to help cover a couple of your daily expenses? Advisors American Group will help you convert your home equity into tax-free cash. Get your Reverse Mortgage Info Kit and fill it to learn more.`,
         benefit:{one:'USE HOME EQUITY TO PAY FOR BILLS', two:'GET A REVERSE MORTGAGE KIT'},
-        link:'https://offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
+        link:'offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
 
         {title:'Get a Reverse Mortgage', 
         image: require('../assets/reverse_mortgage.jpg'),
         details:`Do you own a home with equity and would like some cash to help cover a couple of your daily expenses? Advisors American Group will help you convert your home equity into tax-free cash. Get your Reverse Mortgage Info Kit and fill it to learn more.`,
         benefit:{one:'USE HOME EQUITY TO PAY FOR BILLS', two:'GET A REVERSE MORTGAGE KIT'},
-        link:'https://offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
+        link:'offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
 
         {title:'Big Discount On A Walk In Tub', 
         image: require('../assets/walk_in_tub.jpg'),
         details:`These tubs were designed with seniors in mind. If you have any mobility issues you need to learn more about walk in tubs. Click to find out more information and discover the huge discounts being offered by walk in tub manufacturers.`,
         benefit:{one:'A TUB THAT PROMOTES EASE OF USE', two:'SAVE $$ WITH SPECIAL DISCOUNTS'},
-        link:'http://walk-intuboutlet.com/809/?aid2=5290&utm_campaign=5290&oid2=809&s1=161393'},
+        link:'walk-intuboutlet.com/809/?aid2=5290&utm_campaign=5290&oid2=809&s1=161393'},
 
         {title:'Save On Customized Quality Hearing Aids', 
         image: require('../assets/hearing_aid.jpg'),
         details:`Audicus is here to offer you a solution for your hearing loss. They source their products directly from the manufacturers, which is why the can comfortably offer the best prices in the market. If youre looking for customized, top-of-the-line and affordable hearing aids, then look no further.`,
         benefit:{one:'BEST PRICES ON THE MARKET', two:'TOP OF THE LINE HEARING AIDS'},
-        link:'http://findassistance.org/savingsparade/seniors/rd.php?id=13'},
+        link:'findassistance.org/savingsparade/seniors/rd.php?id=13'},
 
         {title:'Discounted Early Screening for Stroke & Heart Disease', 
         image: require('../assets/health_screening.jpg'),
@@ -554,17 +684,17 @@ export default {
   methods: {
     stepper(step){
       this.step = step
+      setTimeout(window.scrollTo(0, 0), 2100)
     },
     seeOffer(){
       window.open(`https://${this.offers[this.offerCount].link}`)
     },
     nextOffer(){
+      setTimeout(window.scrollTo(0, 0), 2100)
       this.offerCount++;
-      if(this.offerCount >= 19){
+      if(this.offerCount >= 18){
         this.step = 'final';
       }
-      window.scrollTo(0, 0);
-      
     },
     tab(id){
       this.tabId = id;
@@ -587,8 +717,40 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  .tab_container{
+  .tabs{
     display:none;
+  }
+  .final_desktop{
+    display:none;
+  }
+  .final_mobile{
+    font-size:1.6em;
+    color:#084CAD;
+    text-align:center;
+    max-width: 500px;
+    margin:3em auto;
+    .final_mobile_heading{
+      border: 1px solid #084CAD;
+      padding: 5px;
+      width: 98%;
+      margin: 0 auto;
+      background: #f2f5fb;
+      border-radius: 2px;
+    }
+    .final_mobile_ad{
+      display: inline-block;
+      width:42%;
+      margin:2em 0.4em;
+    }
+    .final_mobile_ad_text{
+      text-align: left;
+      color: #3d3d3d;
+      font-size: 0.6em;
+    }
+    img{
+      min-height:140px;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+    }
   }
   .front_page_block{
     margin:8em auto;
@@ -670,6 +832,9 @@ export default {
     margin:1.8em auto;
     width:360px;
   }
+  .question li{
+    font-size:1.3em;
+  }
   h1{
     font-size:2.3em !important;
     font-weight: 600;
@@ -702,6 +867,7 @@ export default {
     width:96%;
     text-align: center;
     max-width:800px;
+    background:white;
     .button{
       display: inline-block;
       width:49%;
@@ -726,22 +892,25 @@ export default {
     }
   }
   .final{
+    margin-top:2em;
     h1{
      margin:10px 0;
      text-align:center;
     }
     h2{
-      text-align: left;
+      text-align: center;
       font-size:1.3em;
+      margin:1em auto;
     }
     h3{
       border-radius: 4px;
       font-size:1.1em;
       font-weight:600;
       text-align:left;
+      margin:0.5em;
     }
     .final_box{
-      padding: 2em;
+      padding: 1em 2em;
       border: 2px dashed red;
       max-width: 600px;
       margin: 0 auto;
@@ -770,10 +939,10 @@ export default {
       background-size: cover;
     }
     .offer_header > h1{
-      font-size:1.6em !important;
+      font-size:2em !important;
       margin:1em 0;
       text-align:left;
-      font-weight:900;
+      font-weight:600;
     }
     .offer_details{
       background-color:white;
@@ -901,8 +1070,26 @@ export default {
 }
 
 @media only screen and (min-width: 800px) {
-  .tab_container{
+  .tabs{
     display:block;
+    margin:0;
+  }
+  .tab_container{
+    margin:4em 0 0 0;
+  }
+  .final_mobile{
+    display:none;
+  }
+  .final_desktop{
+    display:block;
+    margin:0 auto;
+    text-align: left;
+  }
+  #final_desktop_block{
+    margin:0 auto;
+    img{
+      min-height: 150px;
+    }
   }
 }
 </style>
