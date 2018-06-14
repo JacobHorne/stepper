@@ -271,7 +271,7 @@
               </div>
               <div class="button-group">
                <button class="button is-large next" @click="stepper('offers')">
-                <span>Next</span>
+                <span>Show Me Programs</span>
                 <span class="icon is-small">
                   <i class="fas fa-arrow-right"></i>
                 </span>
@@ -439,7 +439,7 @@
                   <div class="column block">
                      <a href="google.com"><img src="../assets/newday.jpg"></a>
                     <h5>Enrollment</h5>
-                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+                    <p>100% free enrollment for qualifying citizens of the United States who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
                   </div>
                   <div class="column block">
                      <a href="google.com"><img src="../assets/home_repair.jpg"></a>
@@ -520,7 +520,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 'final',
+      step: 1,
       offerCount:0,
       steps:[],
       tabId:1,
@@ -602,9 +602,7 @@ export default {
         image: require('../assets/dining.jpg'),
         details: `When you dont feel like cooking here is a list of restaurants that offer senior deals. Keep in mind that some deals and discounts may vary by location and can change without notice.
           - Arby's: 10% discount for those over 55.
-
           - Chick-fil-a: Free small drink or coffee plus a 10% discount for those 55+
-
           - Waffle House: 10% meals on Mondays for seniors 60+
           - Burger King: 10% discount for those 60 and older.
           - Steak and Shake: 10% discount on certain days for 55+
