@@ -633,12 +633,6 @@ export default {
         benefit:{one:'USE HOME EQUITY TO PAY FOR BILLS', two:'GET A REVERSE MORTGAGE KIT'},
         link:'offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
 
-        {title:'Get a Reverse Mortgage', 
-        image: require('../assets/reverse_mortgage.jpg'),
-        details:`Do you own a home with equity and would like some cash to help cover a couple of your daily expenses? Advisors American Group will help you convert your home equity into tax-free cash. Get your Reverse Mortgage Info Kit and fill it to learn more.`,
-        benefit:{one:'USE HOME EQUITY TO PAY FOR BILLS', two:'GET A REVERSE MORTGAGE KIT'},
-        link:'offers.lendingtree.com/tla.aspx?tid=reverse2&vid=0-2-3&promo=00541&icode=17180&SpId=m2-reverse-low-40335-95&cpad=1&r=1&esourceid=6245456&cchannel=perf&cproduct=rm&csource=33&cmethod=display&cterm=113997773&800num=hide&siteid=515#/step/1/'},
-
         {title:'Big Discount On A Walk In Tub', 
         image: require('../assets/walk_in_tub.jpg'),
         details:`These tubs were designed with seniors in mind. If you have any mobility issues you need to learn more about walk in tubs. Click to find out more information and discover the huge discounts being offered by walk in tub manufacturers.`,
@@ -682,17 +676,17 @@ export default {
   methods: {
     stepper(step){
       this.step = step
-      setTimeout(window.scrollTo(0, 0), 2100)
+      setTimeout(window.scrollTo(0, 0), 2100);
     },
     seeOffer(){
       window.open(`https://${this.offers[this.offerCount].link}`)
     },
     nextOffer(){
-      setTimeout(window.scrollTo(0, 0), 2100)
       this.offerCount++;
       if(this.offerCount >= 18){
         this.step = 'final';
       }
+      setTimeout(window.scrollTo(0, 0), 5000);
     },
     tab(id){
       this.tabId = id;
