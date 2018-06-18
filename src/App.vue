@@ -1,10 +1,9 @@
 <template>
-
   <div id="app">
-    
+
     <Header/>
     <div class="wrapper">
-      <Questions/>
+      <router-view></router-view>
     </div>
 
   </div> <!-- Vue Div -->
