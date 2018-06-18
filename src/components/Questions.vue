@@ -516,6 +516,7 @@
 
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Questions',
   data () {
@@ -524,6 +525,7 @@ export default {
       offerCount:0,
       steps:[],
       tabId:1,
+      offerGet: 1,
       userData: {
         housing:'',
         employment:'',
@@ -666,13 +668,21 @@ export default {
           SeaWorld Orlando: $3 off one-day tickets (50+)
           Carnival Cruise: Exclusive savings for seniors 55+ (call before booking)
           American Airlines: Various discounts for 65 and up (call before booking)`,
-
         benefit:{one:'BIG SENIOR ONLY DISCOUNTS', two:'CRUISE AND HOTELS UP TO 50% OFF'},
         link:'google.com'},
       ],
     }
   },
-  
+  mounted(){
+    axios
+    .get('http://findassistance.org/api/get_offer.php', {
+      params: {
+        step: 1
+      }
+    })
+    .then(response => (console.log(response.data)))
+    .catch(error => console.log(error))
+  },
   methods: {
     stepper(step){
       this.step = step
@@ -683,10 +693,24 @@ export default {
     },
     nextOffer(){
       this.offerCount++;
+
+
+      this.offerGet++; //increment the urlParam
+      
+      
       if(this.offerCount >= 17){
         this.step = 'final';
       }
-      setTimeout(window.scrollTo(0, 0), 5000);
+      //Call Server to get the Next Set Of Data
+      axios
+      .get('http://findassistance.org/api/get_offer.php', {
+        params: {
+          step: this.offerGet
+        }
+      })
+      .then(response => (console.log(response.data)))
+      .catch(error => console.log(error))
+
     },
     tab(id){
       this.tabId = id;
@@ -709,7 +733,6 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  [v-cloak] { display: none; }
   .tabs{
     display:none;
   }
