@@ -1,10 +1,6 @@
 <template>
   <div>
-     <!-- <div class="header">
-     <img src="../assets/logo.png">
-     </div>
-     <div class="header-fade"></div>
-     <div class="header-faded"></div> -->
+     <h1>This is A MF Route</h1>
   </div>
 </template>
 

@@ -1,9 +1,12 @@
 <template>
+
   <div id="app">
+    
     <Header/>
     <div class="wrapper">
       <Questions/>
     </div>
+
   </div> <!-- Vue Div -->
 </template>
 
