@@ -1,7 +1,9 @@
-import Header from './components/Header.vue'
-import Questions from './components/Questions.vue'
+import Hardship from './components/Hardship.vue'
+import Housing from './components/Housing.vue'
+import Employment from './components/Employment.vue'
 
 export const routes = [
-  { path : '', component: Questions },
-  { path : '/Header', component: Header  },
+  { path : '', component: Hardship },
+  { path : '/Housing', component: Housing  },
+  { path : '/Employment', component: Employment  }
 ];
