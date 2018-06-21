@@ -6,15 +6,20 @@
 </template>
 
 <script>
+import { EventBus } from '../event-bus.js';
 export default {
   name: 'Hardship',
   data () {
     return {
+      clickCount:1
     }
   },
   methods: {
     next(){
-      this.$router.push('/Employment')
+      this.clickCount++;
+      // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+      EventBus.$emit('update-step', this.clickCount);
+      this.$router.push('/Employment');
     }
   },
 }
