@@ -338,179 +338,80 @@
          </transition-group>
      </div>
 
-     <div class="tab_container" v-if="step === 'final'">
-              <div class="tabs is-centered is-boxed is-medium">
-                <ul>
-                  <li @click="tabId = 1" :class="{ 'is-active' : tabId == 1 }">
-                    <a>
-                      <span class="icon is-small"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
-                      <span>Top</span>
-                    </a>
-                  </li>
-                  <li  @click="tabId = 2" :class="{ 'is-active' : tabId == 2 }">
-                    <a>
-                      <span class="icon is-small"><i class="fas fa-home" aria-hidden="true"></i></span>
-                      <span>Home</span>
-                    </a>
-                  </li>
-                  <li  @click="tabId = 3" :class="{ 'is-active' : tabId == 3 }">
-                    <a>
-                      <span class="icon is-small"><i class="fas fa-car" aria-hidden="true"></i></span>
-                      <span>Auto</span>
-                    </a>
-                  </li>
-                  <li  @click="tabId = 4" :class="{ 'is-active' : tabId == 4 }">
-                    <a>
-                      <span class="icon is-small"><i class="fas fa-suitcase" aria-hidden="true"></i></span>
-                      <span>Travel</span>
-                    </a>
-                  </li>
-                  <li  @click="tabId = 5" :class="{ 'is-active' : tabId == 5 }">
-                    <a>
-                      <span class="icon is-small"><i class="fas fa-money-bill-alt" aria-hidden="true"></i></span>
-                      <span>Financial</span>
-                    </a>
-                  </li>
-                </ul>
+     <div v-if="step === 'final'">
+            
+          <div class="columns directoy_page_block" style="max-width:1000px;">
+              <div class="column block">
+                <!-- <span class="icon is-large">
+                <i class="far fa-handshake"></i>
+                </span> -->
+                <div>
+                  <img src='../assets/auto.jpg'>
+                </div>
+                <h5>Assistance</h5>
+                <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
               </div>
-
-              <!--Final Page Desktop-->
-              <div class="final_desktop" style="max-width:800px;">
-                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 1'>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/dining.jpg"></a>
-                    <h5>Assistance</h5>
-                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/debt.jpg"></a>
-                    <h5>Enrollment</h5>
-                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/opinions.jpg"></a>
-                    <h5>Information</h5>
-                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-                  </div>
+              <div class="column block">
+                 <!-- <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-edit"></i>
+                </span> -->
+                <div>
+                  <img src='../assets/health.jpg'>
                 </div>
-
-                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 2'>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/debt.jpg"></a>
-                    <h5>Assistance</h5>
-                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/health_screening.jpg"></a>
-                    <h5>Enrollment</h5>
-                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/home_repair.jpg"></a>
-                    <h5>Information</h5>
-                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-                  </div>
-                </div>
-
-                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 3'>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/medicare.jpg"></a>
-                    <h5>Assistance</h5>
-                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/warranty.jpg"></a>
-                    <h5>Enrollment</h5>
-                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/home_repair.jpg"></a>
-                    <h5>Information</h5>
-                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-                  </div>
-                </div>
-
-                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 4'>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/life-insurance.jpg"></a>
-                    <h5>Assistance</h5>
-                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/newday.jpg"></a>
-                    <h5>Enrollment</h5>
-                    <p>100% free enrollment for qualifying citizens of the United States who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/home_repair.jpg"></a>
-                    <h5>Information</h5>
-                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-                  </div>
-                </div>
-
-                <div class="columns front_page_block" id="final_desktop_block" v-if='tabId === 5'>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/medicare.jpg"></a>
-                    <h5>Assistance</h5>
-                    <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/adt.jpg"></a>
-                    <h5>Enrollment</h5>
-                    <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-                  </div>
-                  <div class="column block">
-                     <a href="google.com"><img src="../assets/travel.jpg"></a>
-                    <h5>Information</h5>
-                    <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-                  </div>
-                </div>
+                <h5>Enrollment</h5>
+                <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
               </div>
-
-              <div class="final_mobile">
-                <div class="final_mobile_heading">
-                  <span class="icon is-medium"><i class="fas fa-thumbs-up" aria-hidden="true"></i></span>
-                  <span>Top Offers</span>
-                </div>
-                  <div class="final_mobile_ad">
-                    <h5></h5>
-                    <a href="google.com"><img src="../assets/debt.jpg"></a>
-                    <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
-                  </div>
-                  <div class="final_mobile_ad">
-                    <a href="google.com"><img src="../assets/newday.jpg"></a>
-                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
-                  </div>
-               
-                 <div class="final_mobile_heading">
-                  <span class="icon is-medium"><i class="fas fa-check" aria-hidden="true"></i></span>
-                  <span>Home Offers</span>
-                </div>
-                  <div class="final_mobile_ad">
-                    <a href="google.com"><img src="../assets/reverse_mortgage.jpg"></a>
-                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
-                  </div>
-                  <div class="final_mobile_ad">
-                    <a href="google.com"><img src="../assets/warranty.jpg"></a>
-                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
-                  </div>
-
-                   <div class="final_mobile_heading">
-                  <span class="icon is-medium"><i class="fas fa-check" aria-hidden="true"></i></span>
-                  <span>Financial Offers</span>
-                </div>
-                  <div class="final_mobile_ad">
-                    <a href="google.com"><img src="../assets/discounts.jpg"></a>
-                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
-                  </div>
-                  <div class="final_mobile_ad">
-                    <a href="google.com"><img src="../assets/adt.jpg"></a>
-                     <p class="final_mobile_ad_text">content is king and people are beginning to understand that. However, back over in reality some project schedules and budgets don’t allow for web copy to be written before the design </p>
-                  </div>
-             </div>
-
-            </div>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-check-square"></i>
+                </span>
+                <h5>Information</h5>
+                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+              </div>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-check-square"></i>
+                </span>
+                <h5>Information</h5>
+                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+              </div>
           </div>
+
+        <div class="columns directoy_page_block" style="max-width:1000px;">
+              <div class="column block">
+                <!-- <span class="icon is-large">
+                <i class="far fa-handshake"></i>
+                </span> -->
+                <div>
+                  <img src='../assets/auto.jpg'>
+                </div>
+                <h5>Health</h5>
+                <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
+              </div>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-edit"></i>
+                </span>
+                <h5>Enrollment</h5>
+                <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
+              </div>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-check-square"></i>
+                </span>
+                <h5>Information</h5>
+                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+              </div>
+              <div class="column block">
+                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
+                <i class="far fa-check-square"></i>
+                </span>
+                <h5>Information</h5>
+                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
+              </div>
+          </div>
+
+        </div>
   </div> <!--Vue Div-->
 </template>
 
@@ -521,7 +422,7 @@ export default {
   name: 'Questions',
   data () {
     return {
-      step: 1,
+      step: 'final',
       offerCount:0,
       steps:[],
       tabId:1,
@@ -768,6 +669,27 @@ export default {
       box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
     }
   }
+  .directoy_page_block{
+    margin:0em auto;
+    .block{
+      background:white;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+      margin:15px;
+      text-align:center;
+      > span{
+        font-size:3.5em;text-align:center;margin:20px 0; color:#084CAD;opacity:0.85;
+      }
+      > p{
+        text-align:center;
+      }
+      h5{
+        font-size:1.3em;
+        margin-bottom:10px;
+        font-weight: 600;
+      }
+    }
+  }
+
   .front_page_block{
     margin:8em auto;
     .block{
