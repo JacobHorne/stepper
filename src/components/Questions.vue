@@ -687,6 +687,10 @@ export default {
         margin-bottom:10px;
         font-weight: 600;
       }
+      img{
+        display: inline-block;
+        max-width: 10px;
+      }
     }
   }
 
