@@ -332,86 +332,70 @@
                     </div>
                   </div> -->
               </div>
-                <h2>Be on the Lookout for More Offers!</h2>
+                <h2 style="margin:1em 0;color:grey">Check Your Email for More Programs and Resources.</h2>
             </div>
           </div>
          </transition-group>
      </div>
 
-     <div v-if="step === 'final'">
-            
-          <div class="columns directoy_page_block" style="max-width:1000px;">
-              <div class="column block">
-                <!-- <span class="icon is-large">
-                <i class="far fa-handshake"></i>
-                </span> -->
-                <div>
-                  <img src='../assets/auto.jpg'>
-                </div>
-                <h5>Assistance</h5>
-                <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-              </div>
-              <div class="column block">
-                 <!-- <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
-                <i class="far fa-edit"></i>
-                </span> -->
-                <div>
-                  <img src='../assets/health.jpg'>
-                </div>
-                <h5>Enrollment</h5>
-                <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-              </div>
-              <div class="column block">
-                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
-                <i class="far fa-check-square"></i>
-                </span>
-                <h5>Information</h5>
-                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-              </div>
-              <div class="column block">
-                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
-                <i class="far fa-check-square"></i>
-                </span>
-                <h5>Information</h5>
-                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-              </div>
-          </div>
-
-        <div class="columns directoy_page_block" style="max-width:1000px;">
-              <div class="column block">
-                <!-- <span class="icon is-large">
-                <i class="far fa-handshake"></i>
-                </span> -->
-                <div>
-                  <img src='../assets/auto.jpg'>
-                </div>
-                <h5>Health</h5>
-                <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>
-              </div>
-              <div class="column block">
-                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
-                <i class="far fa-edit"></i>
-                </span>
-                <h5>Enrollment</h5>
-                <p>100% free enrollment for qualifying citizens of the United STates who are experiencing financial hardship, and access to community based support, assistance, news, and discussions.</p>
-              </div>
-              <div class="column block">
-                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
-                <i class="far fa-check-square"></i>
-                </span>
-                <h5>Information</h5>
-                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-              </div>
-              <div class="column block">
-                 <span class="icon is-large" style="font-size:3.5em;text-align:center; color:#084CAD; opacity:0.85;">
-                <i class="far fa-check-square"></i>
-                </span>
-                <h5>Information</h5>
-                <p>Information on local housing, section 8 / low income housing, housing assistance, government assistance, and rental programs, along with exclusive articles, Third Party Programs, and discounts. </p>
-              </div>
-          </div>
-
+     <div v-if="step === 'final'" style="max-width:1000px;margin:0 auto;">
+        <!--row one-->
+        <h1 style="margin:6em 0 1em 0;font-size:1em !important;">CHOOSE A CATEGORY FOR A LIST OF PROGRAMS AND RESOURCES:</h1>
+        <div class="columns directory_page_block">
+          <a href="findassistance.org/" class="column block grow">
+            <div class="housing"></div>
+              <h5>Housing</h5>
+              <!-- <p>Providing information on assistance, financial help, government help, individual.</p> -->
+            <a class="directory_button">More Details</a>
+          </a>
+          <a href="findassistance.org/" class="column block grow">
+            <div class="auto"></div>
+            <h5>Auto</h5>
+            <!-- <p>Providing information on assistance, financial help. </p> -->
+             <a class="directory_button">More Details</a>
+          </a>
+          <a href="findassistance.org/" class="column block grow">
+            <div class="financial"></div>
+            <h5>Financial</h5>
+            <!-- <p>Providing information on assistance, financial help, government help, members throughout the nation. </p> -->
+             <a class="directory_button">More Details</a>
+          </a>
+          <a href="findassistance.org/" class="column block grow">
+            <div class="legal"></div>
+            <h5>Legal</h5>
+            <!-- <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p> -->
+             <a class="directory_button">More Details</a>
+          </a>
         </div>
+
+        <!--row two-->
+        <div class="columns directory_page_block">
+          <a href="findassistance.org/" class="column block grow">
+            <div class="education"></div>
+            <h5>Education</h5>
+            <!-- <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p> -->
+             <a class="directory_button">More Details</a>
+          </a>
+          <a href="findassistance.org/" class="column block grow">
+            <div class="family"></div>
+            <h5>Family</h5>
+            <!-- <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p> -->
+             <a class="directory_button">More Details</a>
+          </a>
+          <a href="findassistance.org/" class="column block grow">
+            <div class="government"></div>
+            <h5>Government</h5>
+            <!-- <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p> -->
+             <a class="directory_button">More Details</a>
+          </a>
+          <a href="findassistance.org/" class="column block grow">
+            <div class="health"></div>
+            <h5>Health</h5>
+            <!-- <p>Providing information on assistance, financial help, government help, individual and family resources, and much more to members throughout the nation. </p>-->
+             <a class="directory_button">More Details</a>
+          </a>
+        </div>
+      </div>
   </div> <!--Vue Div-->
 </template>
 
@@ -637,39 +621,11 @@ export default {
   .tabs{
     display:none;
   }
-  .final_desktop{
-    display:none;
-  }
-  .final_mobile{
-    font-size:1.6em;
-    color:#084CAD;
-    text-align:center;
-    max-width: 500px;
-    margin:3em auto;
-    .final_mobile_heading{
-      border: 1px solid #084CAD;
-      padding: 5px;
-      width: 98%;
-      margin: 0 auto;
-      background: #f2f5fb;
-      border-radius: 2px;
+  .grow { transition: all .2s ease-in-out; }
+  .grow:hover { transform: scale(1.05); 
+          box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
     }
-    .final_mobile_ad{
-      display: inline-block;
-      width:42%;
-      margin:2em 0.4em;
-    }
-    .final_mobile_ad_text{
-      text-align: left;
-      color: #3d3d3d;
-      font-size: 0.6em;
-    }
-    img{
-      min-height:140px;
-      box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
-    }
-  }
-  .directoy_page_block{
+  .directory_page_block{
     margin:0em auto;
     .block{
       background:white;
@@ -681,15 +637,95 @@ export default {
       }
       > p{
         text-align:center;
+        color:black;
       }
       h5{
         font-size:1.3em;
         margin-bottom:10px;
         font-weight: 600;
+        color:#2d2d2d;
       }
       img{
         display: inline-block;
         max-width: 10px;
+      }
+      .directory_button{
+        padding: 0.7em 2em;
+        background: white;
+        color: #084CAD;
+        border: 1px solid #084CAD;;
+        font-weight: 600;
+        margin: 2em auto;
+        font-size: 1em;
+        display: block;
+        width:90%;
+        border-radius:2px;
+      }
+      .housing{
+        background-image: url('../assets/housing.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+      }
+      .auto{
+        background-image: url('../assets/auto.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+        background-position-x: 5px;
+        background-position-y: 15px;
+      }
+      .financial{
+        background-image: url('../assets/financial.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+      }
+      .legal{
+        background-image: url('../assets/legal.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+      }
+      .education{
+        background-image: url('../assets/education.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+      }
+      .family{
+        background-image: url('../assets/family.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+      }
+      .government{
+        background-image: url('../assets/government.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
+      }
+      .health{
+        background-image: url('../assets/health.jpg');
+        background-repeat: no-repeat;
+        height:100px;
+        margin:0 auto;
+        width:80px;
+        background-size:contain;
       }
     }
   }
